@@ -2,7 +2,7 @@
 
 namespace LexiconMVCEndProject.Controllers
 {
-    public class OrderController : Controller
+    public class SalesOrderController : Controller
     {
         public IActionResult Index()
         {
