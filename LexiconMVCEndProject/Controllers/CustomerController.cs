@@ -2,7 +2,7 @@
 
 namespace LexiconMVCEndProject.Controllers
 {
-    public class ShoppingCartController : Controller
+    public class CustomerController : Controller
     {
         public IActionResult Index()
         {
