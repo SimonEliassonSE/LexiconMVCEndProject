@@ -2,7 +2,7 @@
 
 namespace LexiconMVCEndProject.Models
 {
-    public class CartItemModel
+    public class CartItem
     {
         [Key]
         public int CartItemId { get; set; }
@@ -13,10 +13,10 @@ namespace LexiconMVCEndProject.Models
 
         public int CartId { get; set; }
 
-        public CartModel Cart { get; set; }
+        public Cart Cart { get; set; }
 
         public int ProductId { get; set; }
 
-        public ProductModel Product { get; set; }
+        public Product Product { get; set; }
     }
 }

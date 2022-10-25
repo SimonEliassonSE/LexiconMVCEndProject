@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LexiconMVCEndProject.Models
 {
-    public class CustomerModel
+    public class Customer
     {
+        
         [Key]
         public int CustomerId { get; set; }
 
@@ -23,7 +25,15 @@ namespace LexiconMVCEndProject.Models
 
         public string Email { get; set; }
 
-        public int CartId { get; set; }
+        //public int CartId { get; set; }
+        //[ForeignKey ("CartId")]
+        public Cart Cart { get; set; }
+
+        public List<SalesOrder> SalesOrders { get; set; }
+
+        //public SalesOrder SalesOrder { get; set; }
+
+
 
     }
 }

@@ -2,7 +2,7 @@
 
 namespace LexiconMVCEndProject.Models
 {
-    public class ProductModel
+    public class Product
     {
         [Key]
         public int ProductId { get; set; }
@@ -16,10 +16,13 @@ namespace LexiconMVCEndProject.Models
         public int ProductSaldo { get; set; }
 
         public string IMG { get; set; }
+        public string Brand { get; set; }
 
         public int CategoryID { get; set; }
 
-        public CategoryModel Category { get; set; }
+        public Category Category { get; set; }
+
+        //public List<CartItem> CartItems { get; set; }
 
     }
 }

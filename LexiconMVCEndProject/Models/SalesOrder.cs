@@ -2,18 +2,18 @@
 
 namespace LexiconMVCEndProject.Models
 {
-    public class SalesOrderModel
+    public class SalesOrder
     {
         [Key]
         public int SalesOrderId { get; set; }
 
         public int CartId { get; set; }
 
-        public CartModel Cart { get; set; }
+        public Cart Cart { get; set; }
 
         public int CustomerId { get; set; }
 
-        public CustomerModel Customer { get; set; }
+        public Customer Customer { get; set; }
 
     }
 }
