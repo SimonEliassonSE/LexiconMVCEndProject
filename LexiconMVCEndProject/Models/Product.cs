@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Drawing;
 
 namespace LexiconMVCEndProject.Models
 {
@@ -16,7 +15,7 @@ namespace LexiconMVCEndProject.Models
 
         public int ProductSaldo { get; set; }
 
-        public Image IMG { get; set; }
+        public string IMG { get; set; }
 
         public int CategoryID { get; set; }
 
