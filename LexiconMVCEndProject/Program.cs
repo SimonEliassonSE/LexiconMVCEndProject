@@ -1,7 +1,19 @@
+using LexiconMVCEndProject.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(900);
+});
 
 var app = builder.Build();
 

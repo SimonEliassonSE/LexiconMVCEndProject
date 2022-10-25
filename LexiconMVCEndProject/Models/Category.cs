@@ -2,7 +2,7 @@
 
 namespace LexiconMVCEndProject.Models
 {
-    public class CategoryModel
+    public class Category
     {
         [Key]
         public int CategoryId { get; set; }
@@ -11,7 +11,7 @@ namespace LexiconMVCEndProject.Models
 
         public string Description { get; set; } 
 
-        public List<ProductModel> Products { get; set; }
+        public List<Product> Products { get; set; }
     }
 
 }
