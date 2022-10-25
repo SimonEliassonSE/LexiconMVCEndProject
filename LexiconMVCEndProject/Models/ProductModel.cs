@@ -2,7 +2,7 @@
 
 namespace LexiconMVCEndProject.Models
 {
-    public class Product
+    public class ProductModel
     {
         [Key]
         public int ProductId { get; set; }
@@ -19,7 +19,7 @@ namespace LexiconMVCEndProject.Models
 
         public int CategoryID { get; set; }
 
-        public Category Category { get; set; }
+        public CategoryModel Category { get; set; }
 
     }
 }
