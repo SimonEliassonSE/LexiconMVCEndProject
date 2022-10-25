@@ -2,7 +2,7 @@
 
 namespace LexiconMVCEndProject.Models
 {
-    public class Customer
+    public class CustomerModel
     {
         [Key]
         public int CustomerId { get; set; }
