@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Category>
+
+
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+
+@if (Model != null)
+{
+    
+    <table class="table table-md table-hover">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Products
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(categoryItem => item.CategoryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(categoryItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(categoryItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(categoryItem => item.Products)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a>
+                        <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else{
+    <p>No categories available.</p>
+} 
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create new category</a>
+</p>
+
+
+
