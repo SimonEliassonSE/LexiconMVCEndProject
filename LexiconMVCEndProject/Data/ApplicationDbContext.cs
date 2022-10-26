@@ -22,7 +22,9 @@ namespace LexiconMVCEndProject.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
-        public DbSet<SalesOrder> SalesOrders { get; set; }
+
+        public DbSet<CreditCard> CreditCards { get; set; }
+        //public DbSet<SalesOrder> SalesOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -81,15 +83,25 @@ namespace LexiconMVCEndProject.Data
 
             });
 
-
-            modelBuilder.Entity<SalesOrder>().HasData(new SalesOrder
+            modelBuilder.Entity<CreditCard>().HasData(new CreditCard
             {
-                
-                SalesOrderId = 1,
-                CartId = 1,
-                CustomerId = 1,
+                CCId = 1,
+                CreditNumber = "123 456 789",
+                CCV = "123",
+                Bank = "Bank of America",
+                Value = 10000,
+                CustomerId = 1,          
 
             });
+
+            //modelBuilder.Entity<SalesOrder>().HasData(new SalesOrder
+            //{
+
+            //    SalesOrderId = 1,
+            //    CartId = 1,
+            //    CustomerId = 1,
+
+            //});
 
 
 
