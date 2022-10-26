@@ -24,7 +24,8 @@ namespace LexiconMVCEndProject.Data
         public DbSet<CartItem> CartItems { get; set; }
 
         public DbSet<CreditCard> CreditCards { get; set; }
-        //public DbSet<SalesOrder> SalesOrders { get; set; }
+        public DbSet<SalesOrder> SalesOrders { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
