@@ -25,15 +25,16 @@ namespace LexiconMVCEndProject.Models
 
         public string Email { get; set; }
 
-        //public int CartId { get; set; }
-        //[ForeignKey ("CartId")]
+        public List<CreditCard> CreditCardList { get; set; }
         public Cart Cart { get; set; }
 
-        public List<SalesOrder> SalesOrders { get; set; }
+        public Receipt Receipt { get; set; }
+
+        //public int OrderHistoryId { get; set; }
+
+        //public OrderHistory OrderHistory { get; set; }
+        //public List<SalesOrder> SalesOrderList { get; set; }
 
         //public SalesOrder SalesOrder { get; set; }
-
-
-
     }
 }
