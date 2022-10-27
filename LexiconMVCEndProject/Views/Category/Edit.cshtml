@@ -1,0 +1,41 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit category</h1>
+
+<form asp-action="Edit">
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Product ID
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+      </dl>
+
+    <div class="mb-3">
+        <label class="col-sm-2 col-sm-label" for="input">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" id="input" asp-for="Name" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="col-sm-2 col-sm-label" for="input">Description</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" id="input" asp-for="Description" />
+        </div>
+    </div>
+
+    <div>
+        <input class="btn btn-primary" type="submit" value="Edit">
+        <a class="btn btn-outline-dark" asp-action="Index">Return to table</a>
+    </div>
+
+</form>
