@@ -1,10 +1,12 @@
 ﻿using LexiconMVCEndProject.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace LexiconMVCEndProject.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public ApplicationDbContext()
@@ -31,70 +33,109 @@ namespace LexiconMVCEndProject.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Customer>().HasData(new Customer
-            {
-                CustomerId = 1,
-                FirstName = "Carl",
-                LastName = "Karlsson",
-                Address = "Solängen 11",
-                ZipCode = "511 20",
-                City = "Kungsbacka",
-                Country = "Sweden",
-                Email = "CarlKarlsson@gmail.com",
-                PhoneNumber = "+46 72 382 82 17"
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
+            string adminRoleId = Guid.NewGuid().ToString();
+            string userRoleId = Guid.NewGuid().ToString();
+            string userId = Guid.NewGuid().ToString();
 
-                CategoryId = 1,
-                Name = "Headphone",
-                Description = "Wearable headphones",
-                
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = adminRoleId,
+                Name = "Admin",
+                NormalizedName = "ADMIN",
 
             });
-
-            modelBuilder.Entity<Product>().HasData(new Product
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
             {
-
-                ProductId = 1,
-                Name = "Steelseries 7",
-                Description = "A pair of Steelseries headset",
-                Price = 1000,
-                ProductSaldo = 100,
-                IMG = "...",
-                Brand = "Steel Series",
-                CategoryID = 1,
-               
+                Id = userRoleId,
+                Name = "User",
+                NormalizedName = "USER",
             });
 
-            modelBuilder.Entity<Cart>().HasData(new Cart
-            {
-                CartId = 1,
-                TotalPrice = 1000,
-                CustomerId = 1,
+            PasswordHasher<ApplicationUser> hasher = new PasswordHasher<ApplicationUser>();
 
+            modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser
+            {
+                Id = userId,
+                Email = "admin@admin.com",
+                NormalizedEmail = "ADMIN@ADMIN.COM",
+                UserName = "admin@admin.com",
+                NormalizedUserName = "ADMIN@ADMIN.COM",
+                PasswordHash = hasher.HashPassword(null, "password")
             });
 
-            modelBuilder.Entity<CartItem>().HasData(new CartItem
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
-                CartItemId = 1,
-                Quantity = 1,
-                Price = 1000,
-                CartId = 1,
-                ProductId = 1,
-
+                RoleId=adminRoleId,
+                UserId=userId,
             });
 
-            modelBuilder.Entity<CreditCard>().HasData(new CreditCard
-            {
-                CCId = 1,
-                CreditNumber = "123 456 789",
-                CCV = "123",
-                Bank = "Bank of America",
-                Value = 10000,
-                CustomerId = 1,          
+            //---> ModelBuilder.Entity<IdentityUserRole> <---
 
-            });
+            //modelBuilder.Entity<Customer>().HasData(new Customer
+            //{
+            //    CustomerId = 2,
+            //    FirstName = "Simon",
+            //    LastName = "Eliasson",
+            //    Address = "Kvarnberg 12",
+            //    ZipCode = "489 21",
+            //    City = "Borås",
+            //    Country = "Sweden",
+            //    Email = "SimonEliasson@gmail.com",
+            //    PhoneNumber = "+46 73 456 11 13",
+            //    ApplicationUserId = "CarlKarlsson@gmail.com"
+            //});
+            //modelBuilder.Entity<Category>().HasData(new Category
+            //{
+
+            //    CategoryId = 1,
+            //    Name = "Headphone",
+            //    Description = "Wearable headphones",
+
+
+            //});
+
+            //modelBuilder.Entity<Product>().HasData(new Product
+            //{
+
+            //    ProductId = 1,
+            //    Name = "Steelseries 7",
+            //    Description = "A pair of Steelseries headset",
+            //    Price = 1000,
+            //    ProductSaldo = 100,
+            //    IMG = "...",
+            //    Brand = "Steel Series",
+            //    CategoryID = 1,
+
+            //});
+
+            //modelBuilder.Entity<Cart>().HasData(new Cart
+            //{
+            //    CartId = 1,
+            //    TotalPrice = 1000,
+            //    CustomerId = 1,
+
+            //});
+
+            //modelBuilder.Entity<CartItem>().HasData(new CartItem
+            //{
+            //    CartItemId = 1,
+            //    Quantity = 1,
+            //    Price = 1000,
+            //    CartId = 1,
+            //    ProductId = 1,
+
+            //});
+
+            //modelBuilder.Entity<CreditCard>().HasData(new CreditCard
+            //{
+            //    CCId = 1,
+            //    CreditNumber = "123 456 789",
+            //    CCV = "123",
+            //    Bank = "Bank of America",
+            //    Value = 10000,
+            //    CustomerId = 1,          
+
+            //});
 
             //modelBuilder.Entity<SalesOrder>().HasData(new SalesOrder
             //{

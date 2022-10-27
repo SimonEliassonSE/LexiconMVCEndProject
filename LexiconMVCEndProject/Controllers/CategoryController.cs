@@ -37,6 +37,8 @@ namespace LexiconMVCEndProject.Controllers
             {
                 _context.Categories.Add(category);
                 _context.SaveChanges();
+                // Added a RedirectToAtion since previus config caused an error (The index is missing a way to display the "ViewBag")
+                return RedirectToAction("Index");
             }
 
             ViewBag.Statement = "A new category has been added.";
