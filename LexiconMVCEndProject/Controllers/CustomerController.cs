@@ -127,5 +127,13 @@ namespace LexiconMVCEndProject.Controllers
 
             return View(customer);
         }
+
+        //[HttpGet]
+        //public IActionResult AddCreditcard(int id)
+        //{
+        //    return View();
+        //}
+
+
     }
 }
