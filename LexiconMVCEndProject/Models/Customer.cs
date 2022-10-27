@@ -25,6 +25,11 @@ namespace LexiconMVCEndProject.Models
 
         public string Email { get; set; }
 
+        // ska egentligen inte ha en Email utan en UserId och använda sig av ApplicationUser Klassen. 
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
+
         public List<CreditCard> CreditCardList { get; set; }
         public Cart Cart { get; set; }
 
