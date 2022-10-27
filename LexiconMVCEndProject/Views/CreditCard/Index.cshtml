@@ -17,6 +17,7 @@
             <th>CCV number</th>
             <th>Bank</th>
             <th>Saldo</th>
+            <th>Details/Edit/Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -30,10 +31,12 @@
                 <td>@creditCard.CCV</td>
                 <td>@creditCard.Bank</td>
                 <td>@creditCard.Value</td>
-                @*<td><a href="Customer/CustomerDetails/@creditCard.CustomerId" class="btn btn-primary"> Details </a> <a href="Customer/EditCustomer/@creditCard.CustomerId" class="btn btn-primary"> Edit </a> <a asp-action="DeleteCustomer" asp-route-id="@creditCard.CustomerId" class="btn btn-danger"> Delete </a> </td>*@
+                <td><a href="CreditCard/CreditCardDetails/@creditCard.CCId" class="btn btn-primary"> Details </a> <a href="CreditCard/EditCreditCard/@creditCard.CCId" class="btn btn-primary"> Edit </a> <a asp-action="DeleteCreditCard" asp-route-id="@creditCard.CCId" class="btn btn-danger"> Delete </a> </td>
             </tr>
         }
     </tbody>
 </table>
-<a asp-controller="CreditCard" asp-action="AddCreditCard" class="btn btn-primary">Add new creditcard</a>
+<a asp-controller="CreditCard" asp-action="AddCreditCard" class="btn btn-primary">Create Creditcard</a>
 <a asp-controller="Customer" asp-action="Index" class="btn btn-primary">Go back</a>
+
+
