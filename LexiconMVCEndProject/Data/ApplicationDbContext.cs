@@ -49,6 +49,7 @@ namespace LexiconMVCEndProject.Data
                 CategoryId = 1,
                 Name = "Headphone",
                 Description = "Wearable headphones",
+                
 
             });
 
