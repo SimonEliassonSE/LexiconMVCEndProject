@@ -16,9 +16,9 @@ namespace LexiconMVCEndProject.Controllers
         }
         public IActionResult Index()
         {
-            var products = _context.Products.ToList();
+            var Product = _context.Products.ToList();
 
-            return View(products);
+            return View(Product);
         }
 
 
