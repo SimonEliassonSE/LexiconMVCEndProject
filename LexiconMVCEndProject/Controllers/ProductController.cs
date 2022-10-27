@@ -55,7 +55,7 @@ namespace LexiconMVCEndProject.Controllers
             _context.SaveChanges();
 
 
-            return RedirectToAction("AddProduct");
+            return RedirectToAction("AddProducts");
         }
 
 
@@ -77,7 +77,7 @@ namespace LexiconMVCEndProject.Controllers
                     Brand = product.Brand,
                     CategoryID = product.CategoryID,
                 };
-                return View("EditProducts", viewModel);
+                return View("EditProduct", viewModel);
             }
 
             return RedirectToAction("Index");
@@ -130,6 +130,39 @@ namespace LexiconMVCEndProject.Controllers
             product = _context.Products.FirstOrDefault(x => x.ProductId == id);
 
             return View(product);
+        }
+
+        [HttpGet]
+        public IActionResult AddProductToCart()
+        {
+            CartItemViewModel acVM = new CartItemViewModel();
+
+            acVM.CartItems = _context.CartItems.ToList();
+
+            return View(acVM);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddProductToCart(int id)
+        {
+            var product = new Product();
+            product = _context.Products.FirstOrDefault(x => x.ProductId == id);
+
+            var cartItem = new CartItem()
+            {
+                Price = product.Price,
+
+                ProductId = product.ProductId,
+
+
+            };
+
+            await _context.CartItems.AddAsync(cartItem);
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Index");
         }
 
     }
