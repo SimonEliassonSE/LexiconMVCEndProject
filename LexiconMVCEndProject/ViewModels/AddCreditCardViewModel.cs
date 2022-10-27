@@ -10,10 +10,10 @@ namespace LexiconMVCEndProject.ViewModels
         public string Bank { get; set; }
         public double Value { get; set; }
         public int CustomerId { get; set; }
-        //public string FirstName { get; set; }   
-        //public string LastName { get; set; }    
-        //public Customer Customer { get; set; }
-        //public List<Customer> Customers { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
         public List<CreditCard> Creditcards { get; set; }
+
     }
 }
