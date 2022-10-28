@@ -1,0 +1,44 @@
+﻿@model UpdateProductsViewModel
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h4 class="mt-3"> Edit Product</h4>
+<form method="post" action="EditProducts" class="mt-5">
+    <div class="form-group">
+        <label for="" class="form-label">ID</label>
+        <input type="text" class="form-control" asp-for="ProductId" readonly="readonly">
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" required>
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Price</label>
+        <input type="text" class="form-control" asp-for="Price" required>
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="Description" required>
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">ProductSaldo</label>
+        <input type="text" class="form-control" asp-for="ProductSaldo" required>
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">IMG</label>
+        <input type="text" class="form-control" asp-for="IMG" required>
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Brand</label>
+        <input type="text" class="form-control" asp-for="Brand" required>
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">CategoryID</label>
+        <input type="text" class="form-control" asp-for="CategoryID" required>
+    </div>
+  
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>  <a asp-controller="Product" asp-action="Index" class="mt-3 btn btn-primary"> Go back </a>
+</form>

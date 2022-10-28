@@ -1,0 +1,36 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product Details";
+
+}
+<h4 class="mt-3">Product Details</h4>
+<div class="form-group">
+    <label for="" class="form-label">ID: </label> <input class="input-group" value="@Model.ProductId" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">Name</label> <input class="input-group" value="@Model.Name" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">Price</label> <input class="input-group" value="@Model.Price" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">Description</label> <input class="input-group" value="@Model.Description" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">ProductSaldo</label> <input class="input-group" value="@Model.ProductSaldo" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">IMG</label> <input class="input-group" value="@Model.IMG" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">Brand</label> <input class="input-group" value="@Model.Brand" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">CategoryID</label> <input class="input-group" value="@Model.CategoryID" disabled="disabled" />
+</div>
+<div class="form-group">
+    <label for="" class="form-label">Category</label> <input class="input-group" value="@Model.Category" disabled="disabled" />
+</div>
+
+<a asp-controller="Product" asp-action="Index" class="mt-3 btn btn-primary"> Go back </a>
+

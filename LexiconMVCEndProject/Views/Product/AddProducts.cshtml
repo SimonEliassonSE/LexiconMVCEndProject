@@ -1,0 +1,39 @@
+﻿ @model AddProductsViewModel
+
+@{
+    ViewData["Title"] = "Add New Product";
+}
+
+
+<h2>Add New Product</h2>
+
+
+<form action="AddProducts" method="post">
+            <div>
+                <div class="form-group">
+            <input type="text" class=" form-control " name="Name" value="" placeholder="Name" style="width:auto">
+                </div>
+                <div class="form-group">
+            <input type="text" class=" form-control " name="Description" value="" placeholder="Description" style="width:auto">
+                </div>
+        <div class="form-group">
+            <input type="text" class=" form-control " name="Price" value="" placeholder="Price" style="width:auto">
+        </div>
+                <div class="form-group">
+            <input type="text" class=" form-control " name="ProductSaldo" value="" placeholder="ProductSaldo" style="width:auto">
+                </div>
+        <div class="form-group">
+            <input type="text" class=" form-control " name="IMG" value="" placeholder="IMG" style="width:auto">
+        </div>
+        <div class="form-group">
+            <input type="text" class=" form-control " name="Brand" value="" placeholder="Brand" style="width:auto">
+        </div>
+        <div class="form-group">
+            <input type="text" class=" form-control " name="CategoryID" value="" placeholder="CategoryID" style="width:auto">
+        </div>
+
+                <div class="form-group">
+            <input class="btn btn-secondary " id="submit" type="submit" value="Add">
+                </div>
+            </div>
+        </form>
