@@ -41,12 +41,11 @@ namespace LexiconMVCEndProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Statement = "A new category has been added.";
-            return RedirectToAction("Index", ViewBag.Statement);
+            return RedirectToAction("Index");
         }
 
-       
 
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var category = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
@@ -54,19 +53,47 @@ namespace LexiconMVCEndProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Category c)
         {
-            _context.Categories.Update(category);
+            //c.CategoryId = id;   
+            _context.Categories.Update(c);
 
             _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(int id)
+        [HttpGet]
+        public IActionResult Delete(int id) {
+            if(id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            Category category = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
+            if (category != null)
+            {
+                return View(category);
+            }
+
+            return RedirectToAction("Index");
+
+        }
+        
+
+        
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
         {
             var category = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
-            return View(category);
+
+         
+                _context.Categories.Remove(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            
         }
+
+
     }
 }
