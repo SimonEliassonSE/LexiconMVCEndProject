@@ -34,18 +34,26 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Index">Customers</a>
                         </li>
-                         <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Swagger" asp-action="Index">Swagger</a>
-                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Categories</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Swagger" asp-action="Index">Swagger</a>
                         </li>
+                        @if(User.IsInRole("Admin"))
+                        {
+                        <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">Check roles</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Role" asp-action="ShowAllUsers">Check users</a>
+                        </li>
+
+                        }                        
                         <li class="nav-item">
                             <partial name="_LoginPartial"/>
                         </li>
+
                     </ul>
                 </div>
             </div>

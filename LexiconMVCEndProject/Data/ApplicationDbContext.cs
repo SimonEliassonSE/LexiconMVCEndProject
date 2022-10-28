@@ -69,8 +69,6 @@ namespace LexiconMVCEndProject.Data
                 UserId=userId,
             });
 
-            //---> ModelBuilder.Entity<IdentityUserRole> <---
-
             //modelBuilder.Entity<Customer>().HasData(new Customer
             //{
             //    CustomerId = 2,

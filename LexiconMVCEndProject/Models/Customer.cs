@@ -29,7 +29,6 @@ namespace LexiconMVCEndProject.Models
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
-
         public List<CreditCard> CreditCardList { get; set; }
         public Cart Cart { get; set; }
 
