@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "AdminTools";
+}
+
+<h1 class="mt-4">Admin tools</h1>
+
+<div>
+    <div class="card">
+        <div class="card-header">
+            <p>Hi</p>
+        </div>
+@*        <div class="card-body">*@
+            
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="Home" asp-action="AdminTools">AdminTools</a>
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="SalesOrder" asp-action="Index">Orders</a>
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="Product" asp-action="Index">Products</a>
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="CartItem" asp-action="Index">Shopping cart</a>
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="Customer" asp-action="Index">Customers</a>
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="Category" asp-action="Index">Categories</a>                        
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="Role" asp-action="Index">Check roles</a>
+                <a class="nav-link btn btn-primary text-dark col-lg-6 align-content-center m-5" asp-controller="Role" asp-action="ShowAllUsers">Check users</a>
+
+@*        </div>*@
+    </div>
+</div>
+

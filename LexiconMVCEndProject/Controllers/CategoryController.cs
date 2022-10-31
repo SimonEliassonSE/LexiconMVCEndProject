@@ -1,9 +1,12 @@
 ﻿using LexiconMVCEndProject.Data;
 using LexiconMVCEndProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LexiconMVCEndProject.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         readonly ApplicationDbContext _context;

@@ -1,10 +1,12 @@
 ﻿using LexiconMVCEndProject.Data;
 using LexiconMVCEndProject.Models;
 using LexiconMVCEndProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LexiconMVCEndProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CustomerController : Controller
     {
         readonly ApplicationDbContext _context;
