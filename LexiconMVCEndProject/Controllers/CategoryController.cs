@@ -98,44 +98,6 @@ namespace LexiconMVCEndProject.Controllers
         }
 
 
-        //[HttpPost]
-        //public IActionResult EditCustomer(Customer model, string userId/*UpdateCustomerViewModel model, string userId*/)
-        //{
-        //    var customer = _context.Customers.Find(model.CustomerId);
-
-        //    var userEmail = from user in _context.Users
-        //                    where user.Id == userId
-        //                    select new
-        //                    {
-        //                        userEmail = user.UserName
-        //                    };
-
-        //    if (customer != null)
-        //    {
-        //        customer.FirstName = model.FirstName;
-        //        customer.LastName = model.LastName;
-        //        customer.PhoneNumber = model.PhoneNumber;
-        //        customer.Address = model.Address;
-        //        customer.ZipCode = model.ZipCode;
-        //        customer.City = model.City;
-        //        customer.Country = model.Country;
-        //        //customer.Email = model.Email;
-        //        customer.ApplicationUserId = userId;
-
-        //        foreach (var item in userEmail)
-        //        {
-        //            customer.Email = item.userEmail;
-        //        }
-
-        //        _context.SaveChanges();
-
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-
-        // Delete dose not work on Edit Bugg.
         public IActionResult Delete(int id)
         {
             var category = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
