@@ -21,7 +21,6 @@
             <th>City</th>
             <th>Country</th>
             <th>Details/Edit/Delete</th>
-
         </tr>
     </thead>
     <tbody>
@@ -32,11 +31,11 @@
                 <td>@person.FirstName</td>
                 <td>@person.LastName</td>
                 <td>@person.PhoneNumber</td>
+                <td>@person.Email</td>
                 <td>@person.Address</td>
                 <td>@person.ZipCode</td>
                 <td>@person.City</td>
                 <td>@person.Country</td>
-                <td>@person.Email</td>
                 <td><a href="Customer/CustomerDetails/@person.CustomerId" class="btn btn-primary"> Details </a> <a href="Customer/EditCustomer/@person.CustomerId" class="btn btn-primary"> Edit </a> <a asp-action="DeleteCustomer" asp-route-id="@person.CustomerId" class="btn btn-danger"> Delete </a> </td>
             </tr>
 @*            <a asp-action="" asp-route-id="@person.CustomerId" class="btn btn-success"> Edit </a>*@

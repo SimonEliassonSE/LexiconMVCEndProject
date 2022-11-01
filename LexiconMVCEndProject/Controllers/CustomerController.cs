@@ -3,6 +3,7 @@ using LexiconMVCEndProject.Models;
 using LexiconMVCEndProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LexiconMVCEndProject.Controllers
 {
@@ -25,6 +26,9 @@ namespace LexiconMVCEndProject.Controllers
         [HttpGet]
         public IActionResult AddCustomer()
         {
+
+            ViewBag.Users = new SelectList(_context.Users , "Id", "Email");
+
             AddCustomerViewModel acVM = new AddCustomerViewModel();
                 
             acVM.Customers = _context.Customers.ToList();
@@ -33,8 +37,15 @@ namespace LexiconMVCEndProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCustomer(AddCustomerViewModel acVM)
+        public async Task<IActionResult> AddCustomer(AddCustomerViewModel acVM, string userId)
         {
+            var userEmail = from user in _context.Users
+                            where user.Id == userId
+                            select new
+                            {
+                                userEmail = user.UserName
+                            };
+
             var customer = new Customer()
             {
                 //CustomerId = acVM.CustomerId,
@@ -45,9 +56,13 @@ namespace LexiconMVCEndProject.Controllers
                 ZipCode = acVM.ZipCode,
                 City = acVM.City,
                 Country = acVM.Country,
-                Email = acVM.Email,
-
+                ApplicationUserId = userId,       
             };
+
+            foreach (var item in userEmail)
+            {
+                customer.Email = item.userEmail;
+            }
 
             await _context.Customers.AddAsync(customer);
             _context.SaveChanges();
@@ -55,17 +70,21 @@ namespace LexiconMVCEndProject.Controllers
 
             return RedirectToAction("AddCustomer");
         }
-
+        // Need 2 update EDIT, added SelectList with user id in create. Edit is still missing this feature..
         [HttpGet]
         public IActionResult EditCustomer(int id)
         {
+            //ViewBag.Users = new SelectList(_context.Users, "Id", "Email");
             //var customer = await _context.Customers.FirstOrDefault(x =>x.CustomerId == id)
             var customer = _context.Customers.FirstOrDefault(x => x.CustomerId == id);
 
             if(customer != null)
             {
-                var viewModel = new UpdateCustomerViewModel()
-                {
+                //var viewModel = new UpdateCustomerViewModel()
+                ViewBag.Users = new SelectList(_context.Users, "Id", "Email");
+
+                var viewModel = new Customer()
+                                {
                     CustomerId = customer.CustomerId,
                     FirstName = customer.FirstName,
                     LastName = customer.LastName,
@@ -75,6 +94,7 @@ namespace LexiconMVCEndProject.Controllers
                     City = customer.City,
                     Country = customer.Country,
                     Email = customer.Email,
+                    ApplicationUser = customer.ApplicationUser,
                 };
                 return View("EditCustomer", viewModel);
             }
@@ -83,13 +103,19 @@ namespace LexiconMVCEndProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditCustomer(UpdateCustomerViewModel model)
+        public IActionResult EditCustomer(Customer model,string userId/*UpdateCustomerViewModel model, string userId*/)
         {
             var customer = _context.Customers.Find(model.CustomerId);
 
-            if(customer != null)
-            {
+            var userEmail = from user in _context.Users
+                            where user.Id == userId
+                            select new
+                            {
+                                userEmail = user.UserName
+                            };
 
+            if (customer != null)
+            {
                 customer.FirstName = model.FirstName;
                 customer.LastName = model.LastName;
                 customer.PhoneNumber = model.PhoneNumber;
@@ -97,7 +123,13 @@ namespace LexiconMVCEndProject.Controllers
                 customer.ZipCode = model.ZipCode;
                 customer.City = model.City;
                 customer.Country = model.Country;
-                customer.Email = model.Email;
+                //customer.Email = model.Email;
+                customer.ApplicationUserId = userId;
+
+                foreach (var item in userEmail)
+                {
+                    customer.Email = item.userEmail;
+                }
 
                 _context.SaveChanges();
 
@@ -121,6 +153,7 @@ namespace LexiconMVCEndProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // need to show userId aswell in details.
         [HttpGet]
         public IActionResult CustomerDetails(int id)
         {

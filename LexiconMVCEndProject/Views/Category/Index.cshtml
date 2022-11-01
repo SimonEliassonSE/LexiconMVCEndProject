@@ -26,6 +26,9 @@
                 <th>
                     Products
                 </th>
+                <th>
+                    CRUD
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +51,7 @@
 @*                      <a href="CreditCard/CreditCardDetails/@creditCard.CCId" class="btn btn-primary"> Details </a>*@
                         <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a>
                         <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                        <a class="btn btn-outline-danger btn-sm" asp-action="ShowProductsInCategory" asp-route-id="@item.CategoryId">Products in category</a>
 
                     </td>
                 </tr>

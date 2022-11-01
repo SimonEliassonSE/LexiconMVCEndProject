@@ -3,6 +3,7 @@ using LexiconMVCEndProject.Models;
 using LexiconMVCEndProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LexiconMVCEndProject.Controllers
 {
@@ -24,10 +25,13 @@ namespace LexiconMVCEndProject.Controllers
             return View(Product);
         }
 
-
+        // Behöver ingen _context.Products då vi inte displayar en lista med producter. Vi adderar endast 1 produkt.
+        // 
         [HttpGet]
         public IActionResult AddProducts()
         {
+            ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "Name");
+
             AddProductsViewModel apVM = new AddProductsViewModel();
 
             apVM.Products = _context.Products.ToList();
@@ -38,7 +42,7 @@ namespace LexiconMVCEndProject.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddProducts(AddProductsViewModel apVM)
+        public async Task<IActionResult> AddProducts(AddProductsViewModel apVM, int categoryId)
         {
             var product = new Product()
             {
@@ -49,8 +53,8 @@ namespace LexiconMVCEndProject.Controllers
                 ProductSaldo = apVM.ProductSaldo,
                 IMG = apVM.IMG,
                 Brand = apVM.Brand,
-                CategoryID = apVM.CategoryID,
-                Category = apVM.Category,
+                CategoryID = categoryId,
+                //Category = apVM.Category,
 
             };
 
@@ -65,12 +69,14 @@ namespace LexiconMVCEndProject.Controllers
         [HttpGet]
         public IActionResult EditProducts(int id)
         {
+            ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "Name");
             var product = _context.Products.FirstOrDefault(x => x.ProductId == id);
 
             if (product != null)
             {
-                var viewModel = new UpdateProductsViewModel()
-                {
+                //var viewModel = new UpdateProductsViewModel()
+                    var viewModel = new Product()
+                    {
                     ProductId = product.ProductId,
                     Name = product.Name,
                     Price = product.Price,
@@ -87,7 +93,7 @@ namespace LexiconMVCEndProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditProducts(UpdateProductsViewModel model)
+        public IActionResult EditProducts(Product model, int categoryId)
         {
             var product = _context.Products.Find(model.ProductId);
 
@@ -100,7 +106,7 @@ namespace LexiconMVCEndProject.Controllers
                 product.ProductSaldo = model.ProductSaldo;
                 product.IMG = model.IMG;
                 product.Brand = model.Brand;
-                product.CategoryID = model.CategoryID;
+                product.CategoryID = categoryId;
 
                 _context.SaveChanges();
 

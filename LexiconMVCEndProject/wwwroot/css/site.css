@@ -104,3 +104,8 @@ ul ul a {
     padding-left: 30px !important;
 /*    background: #6d7fcc;*/
 }
+
+#cartLogo {
+    padding: 8px,8px,8px,30px;
+    margin-right: 10px;
+}
