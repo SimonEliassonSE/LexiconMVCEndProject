@@ -1,12 +1,14 @@
 ﻿using LexiconMVCEndProject.Data;
 using LexiconMVCEndProject.Models;
 using LexiconMVCEndProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace LexiconMVCEndProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CreditCardController : Controller
     {
         readonly ApplicationDbContext _context;

@@ -22,6 +22,8 @@ namespace LexiconMVCEndProject.ViewModels
 
         public string Email { get; set; }
 
+        public string ApplicationUserId { get; set; }
+
         public List<Customer> Customers { get; set; }
 
     }

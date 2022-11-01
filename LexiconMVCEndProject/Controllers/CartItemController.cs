@@ -1,10 +1,12 @@
 ﻿using LexiconMVCEndProject.Data;
 using LexiconMVCEndProject.Models;
 using LexiconMVCEndProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 namespace LexiconMVCEndProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CartItemController : Controller
     {
         readonly ApplicationDbContext _context;

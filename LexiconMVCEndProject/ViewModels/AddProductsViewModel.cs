@@ -4,6 +4,8 @@ namespace LexiconMVCEndProject.ViewModels
 {
     public class AddProductsViewModel
     {
+        public int ProductId { get; set; }
+
         public string Name { get; set; }
 
         public double Price { get; set; }
@@ -17,7 +19,7 @@ namespace LexiconMVCEndProject.ViewModels
 
         public int CategoryID { get; set; }
 
-        public Category Category { get; set; }
+        //public Category Category { get; set; }
 
         public List<Product> Products { get; set; }
     }
