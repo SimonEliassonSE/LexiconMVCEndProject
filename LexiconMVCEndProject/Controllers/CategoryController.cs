@@ -49,12 +49,12 @@ namespace LexiconMVCEndProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Statement = "A new category has been added.";
-            return RedirectToAction("Index", ViewBag.Statement);
+            return RedirectToAction("Index");
         }
 
 
-        // Code needs to be reworked. When you edit a new"category" (not edit, more like create atm)
+
+
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -76,9 +76,11 @@ namespace LexiconMVCEndProject.Controllers
         }
 
         [HttpPost]
+
         public IActionResult Edit(Category model)
         {
             var category = _context.Categories.Find(model.CategoryId);
+
 
             if (category != null)
 
@@ -94,6 +96,7 @@ namespace LexiconMVCEndProject.Controllers
             return RedirectToAction("Index");
 
         }
+
 
         //[HttpPost]
         //public IActionResult EditCustomer(Customer model, string userId/*UpdateCustomerViewModel model, string userId*/)
@@ -188,8 +191,8 @@ namespace LexiconMVCEndProject.Controllers
 
             return RedirectToAction("Index");
 
+       }
 
 
-        }
     }
 }

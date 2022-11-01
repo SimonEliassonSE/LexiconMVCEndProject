@@ -8,27 +8,25 @@
 
 @*<form asp-action="Edit">
 
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Product ID
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CategoryId)
-        </dd>
-      </dl>
-
-    <div class="mb-3">
-        <label class="col-sm-2 col-sm-label" for="input">Name</label>
+  
+       <div class="mb-3">
+        <label class="col-sm-2 col-sm-label">Category ID</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control form-control-sm" id="input" asp-for="Name" />
+            <input type="number" class="form-control form-control-sm" asp-for="CategoryId" readonly />
         </div>
     </div>
 
     <div class="mb-3">
-        <label class="col-sm-2 col-sm-label" for="input">Description</label>
+        <label class="col-sm-2 col-sm-label" >Name</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control form-control-sm" id="input" asp-for="Description" />
+            <input type="text" class="form-control form-control-sm" asp-for="Name" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="col-sm-2 col-sm-label" >Description</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" asp-for="Description" />
         </div>
     </div>
 
