@@ -1,4 +1,5 @@
-﻿using LexiconMVCEndProject.Models;
+﻿using LexiconMVCEndProject.Data;
+using LexiconMVCEndProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -12,6 +13,7 @@ namespace LexiconMVCEndProject.Controllers
         {
             _logger = logger;
         }
+
 
         public IActionResult Index()
         {

@@ -10,10 +10,6 @@
 
         <form class="mt-5" action="AddProducts" method="post">
             <div>
-@*                <div class="form-group">
-                <label for="">Product Id: </label>
-                <input type="text" class="form-control" asp-for="ProductId" readonly>    
-                </div>*@
                 <div class="form-group">
                     <label for="">Product Name: </label>
                     <input type="text" class="form-control" asp-for="Name" required>    
@@ -71,7 +67,8 @@
                             <td>@product.Price</td>
                             <td>@product.Description</td>
                             <td>@product.ProductSaldo</td>
-                            <td>@product.IMG</td>
+                            <td><img src="@product.IMG" alt="Picture" width="150" height="100"/></td>
+  @*                          <td>@product.IMG</td>*@
                             <td>@product.Brand</td>
                             <td>@product.CategoryID</td>
                         </tr>

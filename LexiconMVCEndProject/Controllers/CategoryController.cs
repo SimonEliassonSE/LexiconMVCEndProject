@@ -95,44 +95,6 @@ namespace LexiconMVCEndProject.Controllers
 
         }
 
-        //[HttpPost]
-        //public IActionResult EditCustomer(Customer model, string userId/*UpdateCustomerViewModel model, string userId*/)
-        //{
-        //    var customer = _context.Customers.Find(model.CustomerId);
-
-        //    var userEmail = from user in _context.Users
-        //                    where user.Id == userId
-        //                    select new
-        //                    {
-        //                        userEmail = user.UserName
-        //                    };
-
-        //    if (customer != null)
-        //    {
-        //        customer.FirstName = model.FirstName;
-        //        customer.LastName = model.LastName;
-        //        customer.PhoneNumber = model.PhoneNumber;
-        //        customer.Address = model.Address;
-        //        customer.ZipCode = model.ZipCode;
-        //        customer.City = model.City;
-        //        customer.Country = model.Country;
-        //        //customer.Email = model.Email;
-        //        customer.ApplicationUserId = userId;
-
-        //        foreach (var item in userEmail)
-        //        {
-        //            customer.Email = item.userEmail;
-        //        }
-
-        //        _context.SaveChanges();
-
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-
-        // Delete dose not work on Edit Bugg.
         public IActionResult Delete(int id)
         {
             var category = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
@@ -147,46 +109,56 @@ namespace LexiconMVCEndProject.Controllers
             return RedirectToAction("Index");
         }
 
-
-        //public ActionResult DeleteCustomer(int id)
-        //{
-        //    var customer = _context.Customers.FirstOrDefault(x => x.CustomerId == id);
-
-        //    if (customer != null)
-        //    {
-        //        _context.Customers.Remove(customer);
-        //        _context.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-
         [HttpGet]
         public IActionResult ShowProductsInCategory(int id)
         {
 
-            var categories = _context.Categories.Find(id);
+            //HomeShopViewModel hsVM = new HomeShopViewModel();
+
+            //var products = _context.Products.Where(x => x.CategoryID == 3).ToList();
+
+            //hsVM.Products = products;
+
+            //return View(hsVM);
+
+            Category c = new Category();
 
             var products = _context.Products.Where(x => x.CategoryID == id).ToList();
 
-            if(categories != null)
-            { 
+            c.Products = products;
 
-                if(products != null)
-                {
+            var categorie = _context.Categories.Where(x => x.CategoryId == id);
 
-                    foreach (var item in products)
-                    {
-                        categories.Products.Add(item);
-                    }
-
-                    return View(categories);
-                }
-
+            foreach(var item in categorie)
+            {
+                c.CategoryId = item.CategoryId;
+                c.Name = item.Name;
             }
 
-            return RedirectToAction("Index");
+
+            return View(c);
+
+            //var categories = _context.Categories.Find(id);
+
+            //var products = _context.Products.Where(x => x.CategoryID == id).ToList();
+
+            //if(categories != null)
+            //{ 
+
+            //    if(products != null)
+            //    {
+
+            //        foreach (var item in products)
+            //        {
+            //            categories.Products.Add(item);
+            //        }
+
+            //        return View(categories);
+            //    }
+
+            //}
+
+            //return RedirectToAction("Index");
 
 
 
