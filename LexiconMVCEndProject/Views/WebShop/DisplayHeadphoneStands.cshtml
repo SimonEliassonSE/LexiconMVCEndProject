@@ -1,0 +1,73 @@
+﻿@model HomeShopViewModel
+
+@{
+    ViewData["Title"] = "Category Headphonestands";
+}
+
+@*@if(User.IsInRole("Admin") && User.IsInRole("User"))
+{
+    <p>Welcome Supreme being Admin!</p>
+    <p>I see that you are also logged in as a User (cant hide from me!)</p>
+    <p>What are we shoping 2 day?</p>
+}*@
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Categories</h3>
+            </div>
+@*            list-unstyled  components*@
+            <ul class="list-unstyled components">
+                <p>Product Categorys</p>
+                <li>
+                    <p><a asp-action="Index">Show all</a></p>
+                </li>
+                <li>
+                    <p><a asp-action="DisplayHeadphones">Headphones</a></p>
+                </li>
+                <li>
+                    <p><a class="alert-dark" asp-action="DisplayHeadphoneStands">Headphon stands</a></p>
+
+                </li>
+                <li>
+                    <p><a asp-action="DisplayKeyboards">Keyboards</a></p>
+
+                </li>
+                <li>
+                    <p><a asp-action="DisplayComputermouses">Computer mouses</a></p>
+                </li>
+            </ul>
+        </nav>
+    <div>
+        <div class="container">
+            <div class="table table-striped table-fit table-bordered table-hover">
+                <ul class="list-unstyled">
+                    @foreach(var item in Model.Products)
+                    {
+                        
+                    <div class="card">   
+                        <div class="card-body">
+                        <li>
+                            <a>
+                                <img src="@item.IMG" alt="Picture" width="125" height="75"/>
+                            </a>
+                        </li>
+                        </div>
+                        <div>
+                            <a class="col-sm-1">
+                                <h4>@item.Name</h4>
+                                <p>
+                                    <span>@item.Brand || @item.Description || @item.Price Kr || <a class="btn btn-primary">Add 2 cart</a></span>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                
+                    }
+
+                </ul>
+            </div>
+        </div>    
+    </div>
+</div>

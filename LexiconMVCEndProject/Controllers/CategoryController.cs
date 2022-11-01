@@ -112,46 +112,56 @@ namespace LexiconMVCEndProject.Controllers
             return RedirectToAction("Index");
         }
 
-
-        //public ActionResult DeleteCustomer(int id)
-        //{
-        //    var customer = _context.Customers.FirstOrDefault(x => x.CustomerId == id);
-
-        //    if (customer != null)
-        //    {
-        //        _context.Customers.Remove(customer);
-        //        _context.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-
         [HttpGet]
         public IActionResult ShowProductsInCategory(int id)
         {
 
-            var categories = _context.Categories.Find(id);
+            //HomeShopViewModel hsVM = new HomeShopViewModel();
+
+            //var products = _context.Products.Where(x => x.CategoryID == 3).ToList();
+
+            //hsVM.Products = products;
+
+            //return View(hsVM);
+
+            Category c = new Category();
 
             var products = _context.Products.Where(x => x.CategoryID == id).ToList();
 
-            if(categories != null)
-            { 
+            c.Products = products;
 
-                if(products != null)
-                {
+            var categorie = _context.Categories.Where(x => x.CategoryId == id);
 
-                    foreach (var item in products)
-                    {
-                        categories.Products.Add(item);
-                    }
-
-                    return View(categories);
-                }
-
+            foreach(var item in categorie)
+            {
+                c.CategoryId = item.CategoryId;
+                c.Name = item.Name;
             }
 
-            return RedirectToAction("Index");
+
+            return View(c);
+
+            //var categories = _context.Categories.Find(id);
+
+            //var products = _context.Products.Where(x => x.CategoryID == id).ToList();
+
+            //if(categories != null)
+            //{ 
+
+            //    if(products != null)
+            //    {
+
+            //        foreach (var item in products)
+            //        {
+            //            categories.Products.Add(item);
+            //        }
+
+            //        return View(categories);
+            //    }
+
+            //}
+
+            //return RedirectToAction("Index");
 
        }
 

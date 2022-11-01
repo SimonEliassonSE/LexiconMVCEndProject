@@ -1,9 +1,34 @@
-﻿@{
+﻿@model HomeShopViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<h5>Welcome to the PC-Corner webshop!</h5>
 
-<div class="wrapper">
+@if(User.Identity.IsAuthenticated == false)
+{
+    <p>Hello friend! you are currently not logged in, please logg in</p>
+}
+
+@if(User.IsInRole("Admin"))
+{
+    <p>Welcome Supreme being Admin!</p>
+}
+
+@if(User.IsInRole("User"))
+{
+    <p>Welcome @User.Identity.Name</p>
+}
+
+@*@if(User.IsInRole("Admin") && User.IsInRole("User"))
+{
+    <p>Welcome Supreme being Admin!</p>
+    <p>I see that you are also logged in as a User (cant hide from me!)</p>
+    <p>What are we shoping 2 day?</p>
+}*@
+
+@*<div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -12,60 +37,56 @@
 
         <ul class="list-unstyled components">
             <p>Dummy Category</p>
+            <li>
+                <p>Dummy Category</p>
+            </li>
+            <li>
+                <p>Dummy Category</p>
 
-@*            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
-            </li>*@
-            <li>
-@*                <a href="#">About</a>*@
-                <p>Dummy Category</p>
             </li>
             <li>
                 <p>Dummy Category</p>
-               @* <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>*@
+
             </li>
             <li>
                 <p>Dummy Category</p>
-@*                <a href="#">Portfolio</a>*@
             </li>
-            <li>
-                <p>Dummy Category</p>
-@*                <a href="#">Contact</a>
-*@            </li>
         </ul>
     </nav>
 <div>
-    <div class="row ">
-        <p class="col-sm">1</p>
-        <p class="col-sm">1</p>
-        <p class="col-sm">1</p>
-        <p class="col-sm">1</p>
-        <p class="col-sm">1</p>
+    <div class="container">
+        <div class="table table-striped table-fit table-bordered table-hover">
+            <ul>
+                @foreach(var item in Model.Products)
+                {
+                        
+                <li>
+                    <img src="@item.IMG" alt="Picture" width="150" height="100"/>
+                </li>
+                
+                }
+
+            </ul>
+        </div>
     </div>    
 </div>
 </div>
 
 
-</div>
+</div>*@
+
+
+@*
+-----> Efter Lunch, skapa ny Controller, ny View & börja bygga webshopen! <-----    
+
+!! OBS Kolla på HomeShopViewModel !! Saknar data, behöver fyllas i. 
+
+readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        var products = _context.Products.ToList();
+            return View(products);*@

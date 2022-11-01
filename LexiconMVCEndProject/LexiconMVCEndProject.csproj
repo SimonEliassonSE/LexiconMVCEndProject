@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Images\Headphones1.jpg" />
+    <Content Remove="wwwroot\Images\Headphones2.jpg" />
+    <Content Remove="wwwroot\Images\Headphones3.jpg" />
+    <Content Remove="wwwroot\Images\Headphones4.jpg" />
+    <Content Remove="wwwroot\Images\Headphones5.jpg" />
+    <Content Remove="wwwroot\Images\Keyboard1.png" />
+    <Content Remove="wwwroot\Images\Keyboard2.png" />
+    <Content Remove="wwwroot\Images\Keyboard3.jpg" />
+    <Content Remove="wwwroot\Images\Mouse1.jpg" />
+    <Content Remove="wwwroot\Images\Mouse2.png" />
+    <Content Remove="wwwroot\Images\Mouse3.png" />
+    <Content Remove="wwwroot\Images\Mouse4.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
@@ -26,6 +41,21 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\Headphones1.jpg" />
+    <None Include="wwwroot\Images\Headphones2.jpg" />
+    <None Include="wwwroot\Images\Headphones3.jpg" />
+    <None Include="wwwroot\Images\Headphones4.jpg" />
+    <None Include="wwwroot\Images\Headphones5.jpg" />
+    <None Include="wwwroot\Images\Keyboard1.png" />
+    <None Include="wwwroot\Images\Keyboard2.png" />
+    <None Include="wwwroot\Images\Keyboard3.jpg" />
+    <None Include="wwwroot\Images\Mouse1.jpg" />
+    <None Include="wwwroot\Images\Mouse2.png" />
+    <None Include="wwwroot\Images\Mouse3.png" />
+    <None Include="wwwroot\Images\Mouse4.png" />
   </ItemGroup>
 
 </Project>
