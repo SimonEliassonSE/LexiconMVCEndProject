@@ -58,7 +58,8 @@
                             <a class="col-sm-1">
                                 <h4>@item.Name</h4>
                                 <p>
-                                    <span>@item.Brand || @item.Description || @item.Price Kr || <a class="btn btn-primary">Add 2 cart</a></span>
+                                    <span>@item.Brand || @item.Description || @item.Price Kr || @if(User.Identity.IsAuthenticated == false){ <a class="btn btn-primary" asp-controller="WebShop" asp-action="AddProductNotLoggedin" >Add 2 cart</a> } @if(User.Identity.IsAuthenticated != false){ <a class="btn btn-primary" asp-controller="WebShop" asp-action="AddProductLoggedin" asp-route-id="@item.ProductId" >Add 2 cart</a> }</span>
+                                    @*<span>@item.Brand || @item.Description || @item.Price Kr || @if(User.Identity.IsAuthenticated == false){ <a class="btn btn-primary" asp-controller="Home" asp-action="Index" >Add 2 cart</a> } @if(User.Identity.IsAuthenticated != false){ <a class="btn btn-primary" asp-controller="WebShop" asp-action="DisplayHeadphones" >Add 2 cart</a> }</span> To test User...*@
                                 </p>
                             </a>
                         </div>
