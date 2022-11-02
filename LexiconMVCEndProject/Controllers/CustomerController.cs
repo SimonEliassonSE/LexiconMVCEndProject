@@ -81,7 +81,7 @@ namespace LexiconMVCEndProject.Controllers
             if(customer != null)
             {
                 //var viewModel = new UpdateCustomerViewModel()
-                ViewBag.Users = new SelectList(_context.Users, "Id", "Email");
+                ViewBag.Users = new SelectList(_context.Users, "Id", "UserName");
 
                 var viewModel = new Customer()
                                 {
