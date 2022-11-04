@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LexiconMVCEndProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221027141409_FirstIdentityInit")]
-    partial class FirstIdentityInit
+    [Migration("20221104111358_Init1")]
+    partial class Init1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -87,6 +87,72 @@ namespace LexiconMVCEndProject.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "b0b2de94-efed-405f-8998-136ea5aa8093",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "b9044dd4-e241-45b5-9a73-1f14e6ded07f",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@ADMIN.COM",
+                            NormalizedUserName = "ADMIN@ADMIN.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEAmY9HuUm7gkrxPlQzfIIEj3WhUW37RKyan5ENfqktKrmFWfMmCrBSeZF2GCeJM+w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "16be559d-6851-4f32-82a9-ff9bd065dc72",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@admin.com"
+                        },
+                        new
+                        {
+                            Id = "335757f1-802a-495b-b2e9-4f490f9935f5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "b59ab84c-5a03-44e5-a3db-51849581249d",
+                            Email = "test1@test.se",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST1@TEST.SE",
+                            NormalizedUserName = "TEST1@TEST.SE",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGvosBYUs++rzwxQLPpWPN3Re7OenWMPSYLDUwtoFbai565Y32KgI4fsiRUkKHa9+w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "129b6da6-7027-44b9-becc-3457b9f63b9d",
+                            TwoFactorEnabled = false,
+                            UserName = "test1@test.se"
+                        },
+                        new
+                        {
+                            Id = "bf02c0be-58d3-4b94-88be-565976b11f9f",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "54cf7322-a998-4350-a274-4461fd58f3c9",
+                            Email = "test2@test.se",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST2@TEST.SE",
+                            NormalizedUserName = "TEST2@TEST.SE",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ5EaKRnH/VxrWfYqLD9tt++xSToXpyhmtBnNfNMXnMi/uOHHXGQQC6SgRqPsRtrDw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "1ed2459e-295f-4245-befd-6f687bc37377",
+                            TwoFactorEnabled = false,
+                            UserName = "test2@test.se"
+                        },
+                        new
+                        {
+                            Id = "e1291f95-6c8d-4e7e-b683-2090733f0dd1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "20febf33-5972-4535-addb-e546d0fafcde",
+                            Email = "test4@test.se",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST4@TEST.SE",
+                            NormalizedUserName = "TEST4@TEST.SE",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG4Psg+Un0UNLchAAY+6DJ6VbNrNyat9Ztd0a6yDvIeg4nDIPB6f5efceu7WkySFiA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c31a4735-0889-49f5-89b2-aa6fc090aecd",
+                            TwoFactorEnabled = false,
+                            UserName = "test4@test.se"
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Cart", b =>
@@ -159,6 +225,32 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            Description = "Diffrent kind's of keyboards",
+                            Name = "Keyboard"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            Description = "Diffrent kind's of computer mouses",
+                            Name = "Computer Mouse"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            Description = "Diffrent kind's of headphones",
+                            Name = "Headphone"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            Description = "Diffrent kind's of headphonestands",
+                            Name = "Headphonestand"
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.CreditCard", b =>
@@ -192,6 +284,35 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("CreditCards");
+
+                    b.HasData(
+                        new
+                        {
+                            CCId = 1,
+                            Bank = "Nordea",
+                            CCV = "852",
+                            CreditNumber = "4566 3621 3658 7895",
+                            CustomerId = 1,
+                            Value = 20000.0
+                        },
+                        new
+                        {
+                            CCId = 2,
+                            Bank = "Swedbank",
+                            CCV = "963",
+                            CreditNumber = "7521 1245 3652 8541",
+                            CustomerId = 2,
+                            Value = 30000.0
+                        },
+                        new
+                        {
+                            CCId = 3,
+                            Bank = "Bank of America",
+                            CCV = "248",
+                            CreditNumber = "7596 8521 4563 8514",
+                            CustomerId = 3,
+                            Value = 50000.0
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Customer", b =>
@@ -244,6 +365,47 @@ namespace LexiconMVCEndProject.Migrations
                         .IsUnique();
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            CustomerId = 1,
+                            Address = "Björnidet 13",
+                            ApplicationUserId = "335757f1-802a-495b-b2e9-4f490f9935f5",
+                            City = "Björneborg",
+                            Country = "Sweden",
+                            Email = "test1@test.se",
+                            FirstName = "Anders",
+                            LastName = "Karlsson",
+                            PhoneNumber = "073 888 54 12",
+                            ZipCode = "123 90"
+                        },
+                        new
+                        {
+                            CustomerId = 2,
+                            Address = "Medborgargatan 39",
+                            ApplicationUserId = "bf02c0be-58d3-4b94-88be-565976b11f9f",
+                            City = "Malmö",
+                            Country = "Sweden",
+                            Email = "test2@test.se",
+                            FirstName = "Karin",
+                            LastName = "Svensson",
+                            PhoneNumber = "074 123 97 41",
+                            ZipCode = "782 21"
+                        },
+                        new
+                        {
+                            CustomerId = 3,
+                            Address = "Björkvägen 89",
+                            ApplicationUserId = "e1291f95-6c8d-4e7e-b683-2090733f0dd1",
+                            City = "Karlstad",
+                            Country = "Sweden",
+                            Email = "test4@test.se",
+                            FirstName = "Sune",
+                            LastName = "Stig",
+                            PhoneNumber = "077 564 28 31",
+                            ZipCode = "329 85"
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Product", b =>
@@ -284,6 +446,151 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            Brand = "Thundercat",
+                            CategoryID = 3,
+                            Description = "Thundercats High end gaming headset for the ultimate gaming experience!",
+                            IMG = "/Images/Headphones1.jpg",
+                            Name = "Arc 100XT",
+                            Price = 1299.0,
+                            ProductSaldo = 100
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            Brand = "Thundercat",
+                            CategoryID = 3,
+                            Description = "Thundercats Mind tier gaming headset",
+                            IMG = "/Images/Headphones2.jpg",
+                            Name = "Thunder 75Z",
+                            Price = 899.0,
+                            ProductSaldo = 180
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            Brand = "Siberia",
+                            CategoryID = 3,
+                            Description = "Siberia's High end gaming headset for the ultimate gaming experience!",
+                            IMG = "/Images/Headphones3.jpg",
+                            Name = "Zero C100",
+                            Price = 1599.0,
+                            ProductSaldo = 50
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            Brand = "Siberia",
+                            CategoryID = 3,
+                            Description = "Siberia's allround headset for gaming and daily use!",
+                            IMG = "/Images/Headphones4.jpg",
+                            Name = "ZummerXT30",
+                            Price = 599.0,
+                            ProductSaldo = 50
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            Brand = "StudioFactory",
+                            CategoryID = 3,
+                            Description = "StudioFactory's top of the line studio recording headset",
+                            IMG = "/Images/Headphones5.jpg",
+                            Name = "Session1",
+                            Price = 2999.0,
+                            ProductSaldo = 30
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            Brand = "Steeldesign",
+                            CategoryID = 4,
+                            Description = "Robust headphonestand made with stainless steel and wood",
+                            IMG = "/Images/HeadphoneStand1.jpg",
+                            Name = "Model3",
+                            Price = 799.0,
+                            ProductSaldo = 90
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            Brand = "GohanStudio",
+                            CategoryID = 1,
+                            Description = "basic keyboard from GohanStudio",
+                            IMG = "/Images/Keyboard1.png",
+                            Name = "Krillin8000",
+                            Price = 499.0,
+                            ProductSaldo = 200
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            Brand = "GohanStudio",
+                            CategoryID = 1,
+                            Description = "Mid tier gaming keyboard from Ghohanstudio",
+                            IMG = "/Images/Keyboard2.png",
+                            Name = "Gohan10x",
+                            Price = 999.0,
+                            ProductSaldo = 90
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            Brand = "GohanStudio",
+                            CategoryID = 1,
+                            Description = "High end gaming keyboard from Ghohanstudio for the ultimate gaming experience!",
+                            IMG = "/Images/Keyboard3.jpg",
+                            Name = "Goku9000",
+                            Price = 1200.0,
+                            ProductSaldo = 50
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "Mid tier gaming mouse from tundra with 3 speed level's",
+                            IMG = "/Images/Mouse1.jpg",
+                            Name = "33SpeedDemon",
+                            Price = 599.0,
+                            ProductSaldo = 98
+                        },
+                        new
+                        {
+                            ProductId = 11,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "Mid tier gaming mouse from tundra",
+                            IMG = "/Images/Mouse2.png",
+                            Name = "NineCA3",
+                            Price = 799.0,
+                            ProductSaldo = 120
+                        },
+                        new
+                        {
+                            ProductId = 12,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "Basic alaround keyboard from tundra",
+                            IMG = "/Images/Mouse3.png",
+                            Name = "TP3",
+                            Price = 399.0,
+                            ProductSaldo = 200
+                        },
+                        new
+                        {
+                            ProductId = 13,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "High end gaming mouse from tundra",
+                            IMG = "/Images/Mouse4.png",
+                            Name = "X-0",
+                            Price = 1100.0,
+                            ProductSaldo = 60
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Receipt", b =>
@@ -301,20 +608,11 @@ namespace LexiconMVCEndProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProductDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductPrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("ReceiptDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("TotalCost")
+                        .HasColumnType("float");
 
                     b.HasKey("ReceiptId");
 
@@ -371,6 +669,22 @@ namespace LexiconMVCEndProject.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "86d6488e-f207-4dee-925a-d8ac23361c10",
+                            ConcurrencyStamp = "7339e8fe-20c6-49e2-a8ad-e3452e82340f",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "4375342d-0159-4c05-9b2a-64a1768f8579",
+                            ConcurrencyStamp = "7b67ca42-c7f2-4464-8509-885b83398ea5",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -460,6 +774,28 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "b0b2de94-efed-405f-8998-136ea5aa8093",
+                            RoleId = "86d6488e-f207-4dee-925a-d8ac23361c10"
+                        },
+                        new
+                        {
+                            UserId = "335757f1-802a-495b-b2e9-4f490f9935f5",
+                            RoleId = "4375342d-0159-4c05-9b2a-64a1768f8579"
+                        },
+                        new
+                        {
+                            UserId = "bf02c0be-58d3-4b94-88be-565976b11f9f",
+                            RoleId = "4375342d-0159-4c05-9b2a-64a1768f8579"
+                        },
+                        new
+                        {
+                            UserId = "e1291f95-6c8d-4e7e-b683-2090733f0dd1",
+                            RoleId = "4375342d-0159-4c05-9b2a-64a1768f8579"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LexiconMVCEndProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221027204914_Added roles and default Admin")]
-    partial class AddedrolesanddefaultAdmin
+    [Migration("20221104111858_TestTest")]
+    partial class TestTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,19 +91,67 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "af0f780c-d573-4f0c-9d8f-22d1848bfe1c",
+                            Id = "617729b1-ff17-4e5b-9191-68e9697587a9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f713833-cc95-47ca-bd41-fc7f20dc52a6",
+                            ConcurrencyStamp = "a2d00d83-6a1a-4d7a-ba6e-59df1a833d5e",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKuhwYs9KsJHNS9gJJIo1p4zmRzly1TLU/oe0fjs81oS+Mw5+zLYpecMzTHoqWbhbw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBs7m/2076kPG6IJhrevK2SgG7ckeO/B3fHA0dRlYawKuufVKYyKmmAztOVzLeq0aQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "09b24947-76a6-47cd-821e-771ed8d209bc",
+                            SecurityStamp = "33d2eb3d-535f-4dd9-ba4d-200bae737280",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
+                        },
+                        new
+                        {
+                            Id = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8e51209d-5bdd-4716-8968-eee0bc959995",
+                            Email = "test1@test.se",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST1@TEST.SE",
+                            NormalizedUserName = "TEST1@TEST.SE",
+                            PasswordHash = "AQAAAAEAACcQAAAAECW836VNNak7A0IK3Czq2WstAqPTFeJFI+8UBGeNSap0HuAvGh1jAKReQ/y0z6BvKw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "0c9b7d39-60f7-4b3a-9ee9-3ba4b2fe7893",
+                            TwoFactorEnabled = false,
+                            UserName = "test1@test.se"
+                        },
+                        new
+                        {
+                            Id = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8d8ff142-64e6-4230-96a3-e092cb1a502d",
+                            Email = "test2@test.se",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST2@TEST.SE",
+                            NormalizedUserName = "TEST2@TEST.SE",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFexe//KSEupvlrxmefl5PIb/SuxJRnvYWxZG1UXG0yluMdPZDcgjASS9klVHKl1yw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4d5738b6-17cf-411f-a671-ae1f6544b2fb",
+                            TwoFactorEnabled = false,
+                            UserName = "test2@test.se"
+                        },
+                        new
+                        {
+                            Id = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "bac2ae10-79fa-4cd0-9ecd-1f9b65a516ba",
+                            Email = "test4@test.se",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST4@TEST.SE",
+                            NormalizedUserName = "TEST4@TEST.SE",
+                            PasswordHash = "AQAAAAEAACcQAAAAENxjV49NB/OQ/pJgvoYmt9BzEaaIEcz+7Xu6aEZIZg+d+NBcizJhX/6ru4tcHzrG0A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b6608c3e-b910-4f68-9357-698eb063d842",
+                            TwoFactorEnabled = false,
+                            UserName = "test4@test.se"
                         });
                 });
 
@@ -127,6 +175,14 @@ namespace LexiconMVCEndProject.Migrations
                         .IsUnique();
 
                     b.ToTable("Carts");
+
+                    b.HasData(
+                        new
+                        {
+                            CartId = 1,
+                            CustomerId = 1,
+                            TotalPrice = 0.0
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.CartItem", b =>
@@ -177,6 +233,32 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            Description = "Diffrent kind's of keyboards",
+                            Name = "Keyboard"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            Description = "Diffrent kind's of computer mouses",
+                            Name = "Computer Mouse"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            Description = "Diffrent kind's of headphones",
+                            Name = "Headphone"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            Description = "Diffrent kind's of headphonestands",
+                            Name = "Headphonestand"
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.CreditCard", b =>
@@ -210,6 +292,35 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("CreditCards");
+
+                    b.HasData(
+                        new
+                        {
+                            CCId = 1,
+                            Bank = "Nordea",
+                            CCV = "852",
+                            CreditNumber = "4566 3621 3658 7895",
+                            CustomerId = 1,
+                            Value = 20000.0
+                        },
+                        new
+                        {
+                            CCId = 2,
+                            Bank = "Swedbank",
+                            CCV = "963",
+                            CreditNumber = "7521 1245 3652 8541",
+                            CustomerId = 2,
+                            Value = 30000.0
+                        },
+                        new
+                        {
+                            CCId = 3,
+                            Bank = "Bank of America",
+                            CCV = "248",
+                            CreditNumber = "7596 8521 4563 8514",
+                            CustomerId = 3,
+                            Value = 50000.0
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Customer", b =>
@@ -262,6 +373,47 @@ namespace LexiconMVCEndProject.Migrations
                         .IsUnique();
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            CustomerId = 1,
+                            Address = "Björnidet 13",
+                            ApplicationUserId = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
+                            City = "Björneborg",
+                            Country = "Sweden",
+                            Email = "test1@test.se",
+                            FirstName = "Anders",
+                            LastName = "Karlsson",
+                            PhoneNumber = "073 888 54 12",
+                            ZipCode = "123 90"
+                        },
+                        new
+                        {
+                            CustomerId = 2,
+                            Address = "Medborgargatan 39",
+                            ApplicationUserId = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
+                            City = "Malmö",
+                            Country = "Sweden",
+                            Email = "test2@test.se",
+                            FirstName = "Karin",
+                            LastName = "Svensson",
+                            PhoneNumber = "074 123 97 41",
+                            ZipCode = "782 21"
+                        },
+                        new
+                        {
+                            CustomerId = 3,
+                            Address = "Björkvägen 89",
+                            ApplicationUserId = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
+                            City = "Karlstad",
+                            Country = "Sweden",
+                            Email = "test4@test.se",
+                            FirstName = "Sune",
+                            LastName = "Stig",
+                            PhoneNumber = "077 564 28 31",
+                            ZipCode = "329 85"
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Product", b =>
@@ -302,6 +454,151 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            Brand = "Thundercat",
+                            CategoryID = 3,
+                            Description = "Thundercats High end gaming headset for the ultimate gaming experience!",
+                            IMG = "/Images/Headphones1.jpg",
+                            Name = "Arc 100XT",
+                            Price = 1299.0,
+                            ProductSaldo = 100
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            Brand = "Thundercat",
+                            CategoryID = 3,
+                            Description = "Thundercats Mind tier gaming headset",
+                            IMG = "/Images/Headphones2.jpg",
+                            Name = "Thunder 75Z",
+                            Price = 899.0,
+                            ProductSaldo = 180
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            Brand = "Siberia",
+                            CategoryID = 3,
+                            Description = "Siberia's High end gaming headset for the ultimate gaming experience!",
+                            IMG = "/Images/Headphones3.jpg",
+                            Name = "Zero C100",
+                            Price = 1599.0,
+                            ProductSaldo = 50
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            Brand = "Siberia",
+                            CategoryID = 3,
+                            Description = "Siberia's allround headset for gaming and daily use!",
+                            IMG = "/Images/Headphones4.jpg",
+                            Name = "ZummerXT30",
+                            Price = 599.0,
+                            ProductSaldo = 50
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            Brand = "StudioFactory",
+                            CategoryID = 3,
+                            Description = "StudioFactory's top of the line studio recording headset",
+                            IMG = "/Images/Headphones5.jpg",
+                            Name = "Session1",
+                            Price = 2999.0,
+                            ProductSaldo = 30
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            Brand = "Steeldesign",
+                            CategoryID = 4,
+                            Description = "Robust headphonestand made with stainless steel and wood",
+                            IMG = "/Images/HeadphoneStand1.jpg",
+                            Name = "Model3",
+                            Price = 799.0,
+                            ProductSaldo = 90
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            Brand = "GohanStudio",
+                            CategoryID = 1,
+                            Description = "basic keyboard from GohanStudio",
+                            IMG = "/Images/Keyboard1.png",
+                            Name = "Krillin8000",
+                            Price = 499.0,
+                            ProductSaldo = 200
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            Brand = "GohanStudio",
+                            CategoryID = 1,
+                            Description = "Mid tier gaming keyboard from Ghohanstudio",
+                            IMG = "/Images/Keyboard2.png",
+                            Name = "Gohan10x",
+                            Price = 999.0,
+                            ProductSaldo = 90
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            Brand = "GohanStudio",
+                            CategoryID = 1,
+                            Description = "High end gaming keyboard from Ghohanstudio for the ultimate gaming experience!",
+                            IMG = "/Images/Keyboard3.jpg",
+                            Name = "Goku9000",
+                            Price = 1200.0,
+                            ProductSaldo = 50
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "Mid tier gaming mouse from tundra with 3 speed level's",
+                            IMG = "/Images/Mouse1.jpg",
+                            Name = "33SpeedDemon",
+                            Price = 599.0,
+                            ProductSaldo = 98
+                        },
+                        new
+                        {
+                            ProductId = 11,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "Mid tier gaming mouse from tundra",
+                            IMG = "/Images/Mouse2.png",
+                            Name = "NineCA3",
+                            Price = 799.0,
+                            ProductSaldo = 120
+                        },
+                        new
+                        {
+                            ProductId = 12,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "Basic alaround keyboard from tundra",
+                            IMG = "/Images/Mouse3.png",
+                            Name = "TP3",
+                            Price = 399.0,
+                            ProductSaldo = 200
+                        },
+                        new
+                        {
+                            ProductId = 13,
+                            Brand = "Tundra",
+                            CategoryID = 2,
+                            Description = "High end gaming mouse from tundra",
+                            IMG = "/Images/Mouse4.png",
+                            Name = "X-0",
+                            Price = 1100.0,
+                            ProductSaldo = 60
+                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Receipt", b =>
@@ -319,20 +616,11 @@ namespace LexiconMVCEndProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProductDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductPrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("ReceiptDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("TotalCost")
+                        .HasColumnType("float");
 
                     b.HasKey("ReceiptId");
 
@@ -393,15 +681,15 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "eaf49ea1-5ea8-4db9-824d-101a94a2418f",
-                            ConcurrencyStamp = "20822350-cecc-4972-af5e-d2c8f2c848fa",
+                            Id = "6637157a-cdb8-4279-a105-418dd604282a",
+                            ConcurrencyStamp = "649ba3aa-1ad6-4096-aa95-db553e7a730b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "a6f147ec-5738-4103-a53c-0ce423e77379",
-                            ConcurrencyStamp = "3bc42f8e-b53b-4a84-af87-a00751c8afcd",
+                            Id = "1e8e3c04-1269-4b4d-8204-c1a737403703",
+                            ConcurrencyStamp = "2dbe8457-0392-46d9-98bf-5825bcf5d7fa",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -498,8 +786,23 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "af0f780c-d573-4f0c-9d8f-22d1848bfe1c",
-                            RoleId = "eaf49ea1-5ea8-4db9-824d-101a94a2418f"
+                            UserId = "617729b1-ff17-4e5b-9191-68e9697587a9",
+                            RoleId = "6637157a-cdb8-4279-a105-418dd604282a"
+                        },
+                        new
+                        {
+                            UserId = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
+                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                        },
+                        new
+                        {
+                            UserId = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
+                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                        },
+                        new
+                        {
+                            UserId = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
+                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
                         });
                 });
 

@@ -53,6 +53,13 @@
                         <li class="nav-item">                            
                             <a class="nav-link text-dark" id="cartLogo" asp-controller="WebShop" asp-action="Cart">🛒</a>
                         </li>
+                        @if(User.IsInRole("User") || User.IsInRole("Admin"))
+                        {
+                        <li class="nav-item">                            
+                            <a class="nav-link text-dark" asp-controller="WebShop" asp-action="MyAccount">My account</a>
+                        </li>
+                        }
+
                 @*        </div>*@
                     </ul>
                 </div>
