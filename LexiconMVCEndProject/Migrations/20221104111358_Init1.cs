@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LexiconMVCEndProject.Migrations
 {
-    public partial class FirstIdentityInit : Migration
+    public partial class Init1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -272,9 +272,7 @@ namespace LexiconMVCEndProject.Migrations
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     ReceiptDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OrderDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductPrice = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TotalCost = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -334,6 +332,93 @@ namespace LexiconMVCEndProject.Migrations
                         principalColumn: "CartId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "7b67ca42-c7f2-4464-8509-885b83398ea5", "User", "USER" },
+                    { "86d6488e-f207-4dee-925a-d8ac23361c10", "7339e8fe-20c6-49e2-a8ad-e3452e82340f", "Admin", "ADMIN" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "335757f1-802a-495b-b2e9-4f490f9935f5", 0, "b59ab84c-5a03-44e5-a3db-51849581249d", "test1@test.se", false, false, null, "TEST1@TEST.SE", "TEST1@TEST.SE", "AQAAAAEAACcQAAAAEGvosBYUs++rzwxQLPpWPN3Re7OenWMPSYLDUwtoFbai565Y32KgI4fsiRUkKHa9+w==", null, false, "129b6da6-7027-44b9-becc-3457b9f63b9d", false, "test1@test.se" },
+                    { "b0b2de94-efed-405f-8998-136ea5aa8093", 0, "b9044dd4-e241-45b5-9a73-1f14e6ded07f", "admin@admin.com", false, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEEAmY9HuUm7gkrxPlQzfIIEj3WhUW37RKyan5ENfqktKrmFWfMmCrBSeZF2GCeJM+w==", null, false, "16be559d-6851-4f32-82a9-ff9bd065dc72", false, "admin@admin.com" },
+                    { "bf02c0be-58d3-4b94-88be-565976b11f9f", 0, "54cf7322-a998-4350-a274-4461fd58f3c9", "test2@test.se", false, false, null, "TEST2@TEST.SE", "TEST2@TEST.SE", "AQAAAAEAACcQAAAAEJ5EaKRnH/VxrWfYqLD9tt++xSToXpyhmtBnNfNMXnMi/uOHHXGQQC6SgRqPsRtrDw==", null, false, "1ed2459e-295f-4245-befd-6f687bc37377", false, "test2@test.se" },
+                    { "e1291f95-6c8d-4e7e-b683-2090733f0dd1", 0, "20febf33-5972-4535-addb-e546d0fafcde", "test4@test.se", false, false, null, "TEST4@TEST.SE", "TEST4@TEST.SE", "AQAAAAEAACcQAAAAEG4Psg+Un0UNLchAAY+6DJ6VbNrNyat9Ztd0a6yDvIeg4nDIPB6f5efceu7WkySFiA==", null, false, "c31a4735-0889-49f5-89b2-aa6fc090aecd", false, "test4@test.se" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Diffrent kind's of keyboards", "Keyboard" },
+                    { 2, "Diffrent kind's of computer mouses", "Computer Mouse" },
+                    { 3, "Diffrent kind's of headphones", "Headphone" },
+                    { 4, "Diffrent kind's of headphonestands", "Headphonestand" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "335757f1-802a-495b-b2e9-4f490f9935f5" },
+                    { "86d6488e-f207-4dee-925a-d8ac23361c10", "b0b2de94-efed-405f-8998-136ea5aa8093" },
+                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "bf02c0be-58d3-4b94-88be-565976b11f9f" },
+                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "e1291f95-6c8d-4e7e-b683-2090733f0dd1" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Customers",
+                columns: new[] { "CustomerId", "Address", "ApplicationUserId", "City", "Country", "Email", "FirstName", "LastName", "PhoneNumber", "ZipCode" },
+                values: new object[,]
+                {
+                    { 1, "Björnidet 13", "335757f1-802a-495b-b2e9-4f490f9935f5", "Björneborg", "Sweden", "test1@test.se", "Anders", "Karlsson", "073 888 54 12", "123 90" },
+                    { 2, "Medborgargatan 39", "bf02c0be-58d3-4b94-88be-565976b11f9f", "Malmö", "Sweden", "test2@test.se", "Karin", "Svensson", "074 123 97 41", "782 21" },
+                    { 3, "Björkvägen 89", "e1291f95-6c8d-4e7e-b683-2090733f0dd1", "Karlstad", "Sweden", "test4@test.se", "Sune", "Stig", "077 564 28 31", "329 85" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductId", "Brand", "CategoryID", "Description", "IMG", "Name", "Price", "ProductSaldo" },
+                values: new object[,]
+                {
+                    { 1, "Thundercat", 3, "Thundercats High end gaming headset for the ultimate gaming experience!", "/Images/Headphones1.jpg", "Arc 100XT", 1299.0, 100 },
+                    { 2, "Thundercat", 3, "Thundercats Mind tier gaming headset", "/Images/Headphones2.jpg", "Thunder 75Z", 899.0, 180 },
+                    { 3, "Siberia", 3, "Siberia's High end gaming headset for the ultimate gaming experience!", "/Images/Headphones3.jpg", "Zero C100", 1599.0, 50 },
+                    { 4, "Siberia", 3, "Siberia's allround headset for gaming and daily use!", "/Images/Headphones4.jpg", "ZummerXT30", 599.0, 50 },
+                    { 5, "StudioFactory", 3, "StudioFactory's top of the line studio recording headset", "/Images/Headphones5.jpg", "Session1", 2999.0, 30 },
+                    { 6, "Steeldesign", 4, "Robust headphonestand made with stainless steel and wood", "/Images/HeadphoneStand1.jpg", "Model3", 799.0, 90 },
+                    { 7, "GohanStudio", 1, "basic keyboard from GohanStudio", "/Images/Keyboard1.png", "Krillin8000", 499.0, 200 },
+                    { 8, "GohanStudio", 1, "Mid tier gaming keyboard from Ghohanstudio", "/Images/Keyboard2.png", "Gohan10x", 999.0, 90 },
+                    { 9, "GohanStudio", 1, "High end gaming keyboard from Ghohanstudio for the ultimate gaming experience!", "/Images/Keyboard3.jpg", "Goku9000", 1200.0, 50 },
+                    { 10, "Tundra", 2, "Mid tier gaming mouse from tundra with 3 speed level's", "/Images/Mouse1.jpg", "33SpeedDemon", 599.0, 98 },
+                    { 11, "Tundra", 2, "Mid tier gaming mouse from tundra", "/Images/Mouse2.png", "NineCA3", 799.0, 120 },
+                    { 12, "Tundra", 2, "Basic alaround keyboard from tundra", "/Images/Mouse3.png", "TP3", 399.0, 200 },
+                    { 13, "Tundra", 2, "High end gaming mouse from tundra", "/Images/Mouse4.png", "X-0", 1100.0, 60 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CreditCards",
+                columns: new[] { "CCId", "Bank", "CCV", "CreditNumber", "CustomerId", "Value" },
+                values: new object[] { 1, "Nordea", "852", "4566 3621 3658 7895", 1, 20000.0 });
+
+            migrationBuilder.InsertData(
+                table: "CreditCards",
+                columns: new[] { "CCId", "Bank", "CCV", "CreditNumber", "CustomerId", "Value" },
+                values: new object[] { 2, "Swedbank", "963", "7521 1245 3652 8541", 2, 30000.0 });
+
+            migrationBuilder.InsertData(
+                table: "CreditCards",
+                columns: new[] { "CCId", "Bank", "CCV", "CreditNumber", "CustomerId", "Value" },
+                values: new object[] { 3, "Bank of America", "248", "7596 8521 4563 8514", 3, 50000.0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

@@ -4,6 +4,7 @@ using LexiconMVCEndProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LexiconMVCEndProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221104111509_AddedCart")]
+    partial class AddedCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,65 +91,65 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "617729b1-ff17-4e5b-9191-68e9697587a9",
+                            Id = "ff143f0d-3fab-4bc9-b427-c6f5cfcb54c6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a2d00d83-6a1a-4d7a-ba6e-59df1a833d5e",
+                            ConcurrencyStamp = "936f9de3-3274-4e5e-a452-e656fdfb52cd",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBs7m/2076kPG6IJhrevK2SgG7ckeO/B3fHA0dRlYawKuufVKYyKmmAztOVzLeq0aQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL9aNTX+UhTPsZvv9ouMoNCmanxALoeLUQcR2GWy7iAZhzleoEDSYtSsQK3eZ6IlJw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "33d2eb3d-535f-4dd9-ba4d-200bae737280",
+                            SecurityStamp = "93dd33a6-3020-4cbc-960d-dc31269357a2",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
                         new
                         {
-                            Id = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
+                            Id = "3f43054c-46de-43c5-901a-cb37820d89d5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8e51209d-5bdd-4716-8968-eee0bc959995",
+                            ConcurrencyStamp = "31e9a18b-c158-4a45-bc10-4f6c2653a791",
                             Email = "test1@test.se",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST1@TEST.SE",
                             NormalizedUserName = "TEST1@TEST.SE",
-                            PasswordHash = "AQAAAAEAACcQAAAAECW836VNNak7A0IK3Czq2WstAqPTFeJFI+8UBGeNSap0HuAvGh1jAKReQ/y0z6BvKw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOe/6E1exg9/5RefZmhhy7g6/hr4v0Z/4/gxpl4opfp0EMUM3w/alOdXo6lT1XlHSA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0c9b7d39-60f7-4b3a-9ee9-3ba4b2fe7893",
+                            SecurityStamp = "87ff5e62-79d2-4408-9f29-ce86c261978f",
                             TwoFactorEnabled = false,
                             UserName = "test1@test.se"
                         },
                         new
                         {
-                            Id = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
+                            Id = "430cbe72-a50e-4b07-b731-2c2a59e86eab",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d8ff142-64e6-4230-96a3-e092cb1a502d",
+                            ConcurrencyStamp = "171fd790-9f45-486c-aea1-6768b38dfbfe",
                             Email = "test2@test.se",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST2@TEST.SE",
                             NormalizedUserName = "TEST2@TEST.SE",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFexe//KSEupvlrxmefl5PIb/SuxJRnvYWxZG1UXG0yluMdPZDcgjASS9klVHKl1yw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOlg9Ji2D8Og9FbwRr9HAlvZH3cj068uFGnvblAYW1nHPXZ1Gt7N1qYZ2qjMDqyYFg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d5738b6-17cf-411f-a671-ae1f6544b2fb",
+                            SecurityStamp = "e5895a5d-c84a-4afc-ae67-558e8cc87dd9",
                             TwoFactorEnabled = false,
                             UserName = "test2@test.se"
                         },
                         new
                         {
-                            Id = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
+                            Id = "bc392b4a-48f8-4033-86e0-a3905d11992d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bac2ae10-79fa-4cd0-9ecd-1f9b65a516ba",
+                            ConcurrencyStamp = "1d3e368e-4b30-46b9-84ab-1e6b1e4a9e48",
                             Email = "test4@test.se",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST4@TEST.SE",
                             NormalizedUserName = "TEST4@TEST.SE",
-                            PasswordHash = "AQAAAAEAACcQAAAAENxjV49NB/OQ/pJgvoYmt9BzEaaIEcz+7Xu6aEZIZg+d+NBcizJhX/6ru4tcHzrG0A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENLEBQr+jpXp90TOSjNpdQUNPwXX1ZHw5hvix/qMVlfeHSOLzH1oLIf3epBPU8VCxg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b6608c3e-b910-4f68-9357-698eb063d842",
+                            SecurityStamp = "1d3ba67c-a45e-492d-bc48-fc5d22c1de71",
                             TwoFactorEnabled = false,
                             UserName = "test4@test.se"
                         });
@@ -377,7 +379,7 @@ namespace LexiconMVCEndProject.Migrations
                         {
                             CustomerId = 1,
                             Address = "Björnidet 13",
-                            ApplicationUserId = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
+                            ApplicationUserId = "3f43054c-46de-43c5-901a-cb37820d89d5",
                             City = "Björneborg",
                             Country = "Sweden",
                             Email = "test1@test.se",
@@ -390,7 +392,7 @@ namespace LexiconMVCEndProject.Migrations
                         {
                             CustomerId = 2,
                             Address = "Medborgargatan 39",
-                            ApplicationUserId = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
+                            ApplicationUserId = "430cbe72-a50e-4b07-b731-2c2a59e86eab",
                             City = "Malmö",
                             Country = "Sweden",
                             Email = "test2@test.se",
@@ -403,7 +405,7 @@ namespace LexiconMVCEndProject.Migrations
                         {
                             CustomerId = 3,
                             Address = "Björkvägen 89",
-                            ApplicationUserId = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
+                            ApplicationUserId = "bc392b4a-48f8-4033-86e0-a3905d11992d",
                             City = "Karlstad",
                             Country = "Sweden",
                             Email = "test4@test.se",
@@ -679,15 +681,15 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6637157a-cdb8-4279-a105-418dd604282a",
-                            ConcurrencyStamp = "649ba3aa-1ad6-4096-aa95-db553e7a730b",
+                            Id = "9336c3c7-d072-422d-a921-6828d891dd51",
+                            ConcurrencyStamp = "91ae4c32-e26c-4e14-a2e1-8eaad6a9e8dc",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "1e8e3c04-1269-4b4d-8204-c1a737403703",
-                            ConcurrencyStamp = "2dbe8457-0392-46d9-98bf-5825bcf5d7fa",
+                            Id = "4a18a108-c833-499c-907e-f2e8b475a20f",
+                            ConcurrencyStamp = "20cb26a4-c078-4aeb-b7b8-d9924495f702",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -784,23 +786,23 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "617729b1-ff17-4e5b-9191-68e9697587a9",
-                            RoleId = "6637157a-cdb8-4279-a105-418dd604282a"
+                            UserId = "ff143f0d-3fab-4bc9-b427-c6f5cfcb54c6",
+                            RoleId = "9336c3c7-d072-422d-a921-6828d891dd51"
                         },
                         new
                         {
-                            UserId = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
-                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                            UserId = "3f43054c-46de-43c5-901a-cb37820d89d5",
+                            RoleId = "4a18a108-c833-499c-907e-f2e8b475a20f"
                         },
                         new
                         {
-                            UserId = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
-                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                            UserId = "430cbe72-a50e-4b07-b731-2c2a59e86eab",
+                            RoleId = "4a18a108-c833-499c-907e-f2e8b475a20f"
                         },
                         new
                         {
-                            UserId = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
-                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                            UserId = "bc392b4a-48f8-4033-86e0-a3905d11992d",
+                            RoleId = "4a18a108-c833-499c-907e-f2e8b475a20f"
                         });
                 });
 

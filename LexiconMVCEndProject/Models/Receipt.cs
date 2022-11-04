@@ -11,20 +11,22 @@ namespace LexiconMVCEndProject.Models
 
         public DateTime ReceiptDate { get; set; }
         public string OrderDate { get; set; }
-        public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
-        public string ProductPrice { get; set; }
+        public double TotalCost { get; set; }
 
-        public static List<string> productDetails { get; set; }
-        public static List<string> newReceipt(string ProductName, string ProductDescription, string ProductPrice)
-        {
+        //public string ProductName { get; set; }
+        //public string ProductDescription { get; set; }
+        //public string ProductPrice { get; set; }
 
-            productDetails.Add(ProductName);
-            productDetails.Add(ProductDescription);
-            productDetails.Add(ProductPrice);
+        //public List<string> productDetails { get; set; } = new List<string>();
+        //public static List<string> newReceipt(string ProductName, string ProductDescription, string ProductPrice)
+        //{
 
-            return productDetails;
-        }
+        //    productDetails.Add(ProductName);
+        //    productDetails.Add(ProductDescription);
+        //    productDetails.Add(ProductPrice);
+
+        //    return productDetails;
+        //}
 
        
 

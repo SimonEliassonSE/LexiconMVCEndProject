@@ -1,0 +1,110 @@
+﻿
+@model MyAccountViewModel
+
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<h1>My Account</h1>
+@if(@Model.CustomerId != 0)
+{
+<p>Welcome @Model.FirstName @Model.LastName </p>
+}
+@if(@Model.CustomerId == 0)
+{
+<p>Welcome</p>
+}
+
+@if(@Model.CustomerId == 0)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5>You havent added any customer data yet</h5>
+            <a asp-controller="WebShop" asp-action="AddCustomerData" class="btn btn-primary">Add customer information</a>
+        </div>
+    </div>
+}
+
+@if(@Model.CustomerId != 0)
+{
+<div class="card">
+    <div class="card-body"> 
+        <h4 class="mt-3">Customer Details</h4>
+         <div class="form-group">     
+            <label for="" class="form-label">ID: </label> <input class="input-group" value="@Model.CustomerId" disabled="disabled"/>   
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">First Name</label> <input class="input-group" value="@Model.FirstName" disabled="disabled"/>
+          </div>
+            <div class="form-group">
+            <label for="" class="form-label">Last Name</label> <input class="input-group" value="@Model.LastName" disabled="disabled"/>
+          </div>
+            <div class="form-group">
+            <label for="" class="form-label">Phonenumber</label> <input class="input-group" value="@Model.PhoneNumber" disabled="disabled"/>
+          </div>
+            <div class="form-group">
+            <label for="" class="form-label">Address</label> <input class="input-group" value="@Model.Address" disabled="disabled"/>
+          </div>
+            <div class="form-group">
+            <label for="" class="form-label">ZipCode</label> <input class="input-group" value="@Model.ZipCode" disabled="disabled"/>
+          </div>
+            <div class="form-group">
+            <label for="" class="form-label">City</label> <input class="input-group" value="@Model.City" disabled="disabled"/>
+          </div>
+            <div class="form-group">
+            <label for="" class="form-label">Country</label> <input class="input-group" value="@Model.Country" disabled="disabled"/>
+          </div>
+            <div class="form-group">
+            <label for="" class="form-label">Email</label> <input class="input-group" value="@Model.Email" disabled="disabled"/>
+          </div>
+         @* <div class="form-group">
+            <label for="" class="form-label">User Id</label> <input class="input-group" value="@Model.ApplicationUserId" disabled="disabled"/>
+          </div>*@
+       </div>
+    </div>
+}
+
+@if(@Model.CCId == 0)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5>You havent added any billing information yet</h5>
+            <a asp-controller="WebShop" asp-action="AddCustomerData" class="btn btn-primary">Add billing information</a>
+        </div>
+    </div>
+}
+
+
+@if(@Model.CCId != 0)
+{
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">     
+            <label for="" class="form-label">ID: </label> <input class="input-group" value="@Model.CCId" disabled="disabled"/>   
+            </div>
+            <div class="form-group">     
+            <label for="" class="form-label">Customer Firstname </label> <input class="input-group" value="@Model.FirstName" disabled="disabled"/>   
+            </div>
+            <div class="form-group">     
+            <label for="" class="form-label">Customer Lastname </label> <input class="input-group" value="@Model.LastName" disabled="disabled"/>   
+            </div>
+            <div class="form-group">
+            <label for="" class="form-label">Creditcard number</label> <input class="input-group" value="@Model.CreditNumber" disabled="disabled"/>
+            </div>
+            <div class="form-group">
+            <label for="" class="form-label">CCV number</label> <input class="input-group" value="@Model.CCV" disabled="disabled"/>
+            </div>
+            <div class="form-group">
+            <label for="" class="form-label">Bank</label> <input class="input-group" value="@Model.Bank" disabled="disabled"/>
+            </div>
+            <div class="form-group">
+            <label for="" class="form-label">Saldo</label> <input class="input-group" value="@Model.Value" disabled="disabled"/>
+            </div>
+    </div>
+</div>
+}
+
+
+@*if recipt exist show link to recpits
+
+if recipt dosent exist display text saying no purchases have been made yet*@

@@ -4,7 +4,8 @@
     {
        public double TotalPrice { get; set; }
 
-        //we need a Cart and the Cart needs a customer to be created, so we will use a list of products instead
+        public string errorMessage { get; set; }
+
         public List<Product> productTempList = new List<Product>();
 
     }
