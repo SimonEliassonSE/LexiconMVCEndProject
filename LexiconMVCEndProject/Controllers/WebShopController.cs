@@ -477,99 +477,82 @@ namespace LexiconMVCEndProject.Controllers
                 _context.SaveChanges();
             }
 
-//--------------------------------------- Left 2 do ----------------------------------------------------------
-    // We must create a recipt and add the products "bought" and then display it in MyAccount
-    // Struggeling currently with the List of strings that should add product information in recipt
 
-            //for (int i = 0; i < tempCart.productTempList.Count; i++)
-            //{
+            // 2 do
+            // ------> // - Update the productsaldo for the products bought            
+            // we probably need a ViewModel to send over the update
 
-            //    var updateProductSaldo = _context.Products.AsNoTracking().Where(x => x.ProductId == tempCart.productTempList[i].ProductId).ToList();
+            // ------> // - Create a salesOrder and add customerId and TotalCost
 
-            //    //Product p = new Product();
+            var getCart = _context.Carts.AsNoTracking().Where(x => x.CustomerId == customer.CustomerId).ToList();
 
-            //    MyAccountViewModel maVM = new MyAccountViewModel();
+            Cart cart = new Cart();
 
-            //    // If the same product is added more then 1 time update gives an error saying that EF already is tracking an instance of this...
-            //    foreach (var item in updateProductSaldo)
-            //    {
+            for (int i = 0; i < getCart.Count; i++)
+            {
+                cart = getCart[i];
+            }
 
-            //        maVM.ProductId = item.ProductId.ToString();
-            //        maVM.Name = item.Name.ToString();
-            //        maVM.Price = item.Price.ToString();
-            //        maVM.Description = item.Description.ToString();
-            //        //maVM.ProductSaldo = item.ProductSaldo - 1;
-            //        //maVM.IMG = item.IMG;
-            //        maVM.Brand = item.Brand.ToString();
-            //        maVM.CategoryID = item.CategoryID.ToString();
+            SalesOrder salesOrder = new SalesOrder();
+            {
+                salesOrder.CartId = cart.CartId;
+                salesOrder.OrderDate = DateTime.Now;
 
+                _context.SalesOrders.Add(salesOrder);
+                _context.SaveChanges();
+            }
 
-            //        //_context.Products.Update(p);
-            //        //_context.SaveChanges();
-            //        //maVM.reciptProductsTemp.Add(maVM);
-                    
+            //// ------> // - Create a recipt and add reciptdata and reciptItems
 
-            //    }
+            //string ReceiptId = Guid.NewGuid().ToString();
 
-
-
-            //}
-
-            //var getCart = _context.Carts.AsNoTracking().Where(x => x.CustomerId == customer.CustomerId).ToList();
-
-            //Cart cart = new Cart();
-            //foreach(var item in getCart)
-            //{
-            //    cart.CartId = item.CartId;
-            //}
-
-            //SalesOrder salesOrder = new SalesOrder();
-            //{
-            //    salesOrder.CartId = cart.CartId;
-            //    salesOrder.OrderDate = DateTime.Now;
-
-            //    _context.SalesOrders.Add(salesOrder);
-            //    _context.SaveChanges();
-            //}
+            //// If we redo the database and make ReceiptId int this will give us the max value. 
+            ////int newId = _context.Receipts.Max(p => p.ReceiptId);
+            //// To prevent EF errors we should also make a ViewModel to hold the values, this will prevent tracking issues. 
 
             //Receipt receipt = new Receipt();
-            //{
+
+            //    receipt.ReceiptId = ReceiptId;
             //    receipt.CustomerId = customer.CustomerId;
             //    receipt.ReceiptDate = DateTime.Now;
             //    receipt.OrderDate = salesOrder.OrderDate.ToString();
-            //    receipt.TotalCost = tempCart.TotalPrice;               
-            //}
+            //    receipt.TotalCost = tempCart.TotalPrice;
 
+            
 
             //for(int i = 0; i < tempCart.productTempList.Count; i++)
-            //{                
-            //    string productId = tempCart.productTempList[i].ProductId.ToString();
-            //    receipt.productDetails.Add(productId);
+            //{
+            //    ReceiptItem recipItem = new ReceiptItem();
 
-            //    string name = tempCart.productTempList[i].Name.ToString();
-            //    receipt.productDetails.Add(name);
+            //    recipItem.ReceiptItemId = i + 1;
+            //    recipItem.Name = tempCart.productTempList[i].Name;
+            //    recipItem.Price = tempCart.productTempList[i].Price.ToString();
+            //    recipItem.Description = tempCart.productTempList[i].Description;
+            //    recipItem.IMG = tempCart.productTempList[i].IMG;
+            //    recipItem.Brand = tempCart.productTempList[i].Brand;
+            //    recipItem.ReceiptId = ReceiptId; /*receipt.ReceiptId;*/
 
-            //    string Price = tempCart.productTempList[i].Price.ToString();
-            //    receipt.productDetails.Add(Price);
-
-            //    string description = tempCart.productTempList[i].Description.ToString();
-            //    receipt.productDetails.Add(description);
-
-            //    string brand = tempCart.productTempList[i].Brand.ToString();
-            //    receipt.productDetails.Add(brand);
-
-            //    string categoryId = tempCart.productTempList[i].CategoryID.ToString();
-            //    receipt.productDetails.Add(categoryId);
+            //    receipt.ReceiptItems.Add(recipItem);
+            //    //receipt.ReceiptItems.Add(recipItem);
             //}
 
+            //_context.Receipts.Add(receipt);
+            //// Error 
+            //// Wont let us saveChanges because we create the id for Receipte our selfs when entity framework is set to autogenerate this code...
+            //// Gör om gör rätt 
+            //_context.SaveChanges();
 
-            // använd Linq för att hämta alla producter där cartId är ... & add to list
-            //var querySelect = from p in _context.Products                             
-            //                  where p.ProductId == id && cc.CustomerId == customer.CustomerId
-            //                  select new
+            // ------> // - Delete SalesOrder, Cart and CartItem (there can only be 1 cart connected to a customer)
 
+            //var cart = _context.Carts.Where(x => x.CustomerId == customer.CustomerId);
 
-            //receipt.productDetails.Add()
+            //_context.Remove(cart);
+            //_context.SaveChanges(); 
+
+            //--------------------------------------- Left 2 do ----------------------------------------------------------
+            // We must create a recipt and add the products "bought" and then display it in MyAccount
+            // Struggeling currently with the List of strings that should add product information in recipt
+
 
             return RedirectToAction("MyAccount");
         }

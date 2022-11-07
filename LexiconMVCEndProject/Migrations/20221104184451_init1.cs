@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LexiconMVCEndProject.Migrations
 {
-    public partial class Init1 : Migration
+    public partial class init1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -267,8 +267,7 @@ namespace LexiconMVCEndProject.Migrations
                 name: "Receipts",
                 columns: table => new
                 {
-                    ReceiptId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ReceiptId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     ReceiptDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OrderDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -333,13 +332,37 @@ namespace LexiconMVCEndProject.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ReceiptItem",
+                columns: table => new
+                {
+                    ReceiptItemId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IMG = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReceiptId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReceiptItem", x => x.ReceiptItemId);
+                    table.ForeignKey(
+                        name: "FK_ReceiptItem_Receipts_ReceiptId",
+                        column: x => x.ReceiptId,
+                        principalTable: "Receipts",
+                        principalColumn: "ReceiptId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "7b67ca42-c7f2-4464-8509-885b83398ea5", "User", "USER" },
-                    { "86d6488e-f207-4dee-925a-d8ac23361c10", "7339e8fe-20c6-49e2-a8ad-e3452e82340f", "Admin", "ADMIN" }
+                    { "41d17cc2-b849-448f-8cff-0008e10ea4c3", "7bc98e8e-7f6e-44aa-9e08-0a1fe26bdfab", "Admin", "ADMIN" },
+                    { "49799b2d-4b7b-4faf-a7b2-83a00fe65175", "a5e74cd7-5400-4f21-b0a1-ee62440f5862", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -347,10 +370,10 @@ namespace LexiconMVCEndProject.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "335757f1-802a-495b-b2e9-4f490f9935f5", 0, "b59ab84c-5a03-44e5-a3db-51849581249d", "test1@test.se", false, false, null, "TEST1@TEST.SE", "TEST1@TEST.SE", "AQAAAAEAACcQAAAAEGvosBYUs++rzwxQLPpWPN3Re7OenWMPSYLDUwtoFbai565Y32KgI4fsiRUkKHa9+w==", null, false, "129b6da6-7027-44b9-becc-3457b9f63b9d", false, "test1@test.se" },
-                    { "b0b2de94-efed-405f-8998-136ea5aa8093", 0, "b9044dd4-e241-45b5-9a73-1f14e6ded07f", "admin@admin.com", false, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEEAmY9HuUm7gkrxPlQzfIIEj3WhUW37RKyan5ENfqktKrmFWfMmCrBSeZF2GCeJM+w==", null, false, "16be559d-6851-4f32-82a9-ff9bd065dc72", false, "admin@admin.com" },
-                    { "bf02c0be-58d3-4b94-88be-565976b11f9f", 0, "54cf7322-a998-4350-a274-4461fd58f3c9", "test2@test.se", false, false, null, "TEST2@TEST.SE", "TEST2@TEST.SE", "AQAAAAEAACcQAAAAEJ5EaKRnH/VxrWfYqLD9tt++xSToXpyhmtBnNfNMXnMi/uOHHXGQQC6SgRqPsRtrDw==", null, false, "1ed2459e-295f-4245-befd-6f687bc37377", false, "test2@test.se" },
-                    { "e1291f95-6c8d-4e7e-b683-2090733f0dd1", 0, "20febf33-5972-4535-addb-e546d0fafcde", "test4@test.se", false, false, null, "TEST4@TEST.SE", "TEST4@TEST.SE", "AQAAAAEAACcQAAAAEG4Psg+Un0UNLchAAY+6DJ6VbNrNyat9Ztd0a6yDvIeg4nDIPB6f5efceu7WkySFiA==", null, false, "c31a4735-0889-49f5-89b2-aa6fc090aecd", false, "test4@test.se" }
+                    { "14a0746b-3157-40a1-be08-e8e1a347ce44", 0, "488b739a-e5d2-48ac-a08a-e97320600a4a", "test2@test.se", false, false, null, "TEST2@TEST.SE", "TEST2@TEST.SE", "AQAAAAEAACcQAAAAEKSS0PibJe+qxjEHhSzn77MqXJr1qEFGeBnL8osOeqN6ylzBitXkpxT/vBz/eRXVsA==", null, false, "76132c67-a518-4255-be9a-e979826c946e", false, "test2@test.se" },
+                    { "9eb04a61-29af-4c92-a2ea-5875520ab0a6", 0, "6ab3e59a-a2e4-4088-8322-0c9906ca29d1", "test4@test.se", false, false, null, "TEST4@TEST.SE", "TEST4@TEST.SE", "AQAAAAEAACcQAAAAEHJjjBXOL46VezgVwA8SVpvIb1fdyYSRke2XNbnnSRVCDPbhsVx/yGJUYMr0HPjAFA==", null, false, "834d1726-ec36-4c5f-9d0c-441cdcd7aee0", false, "test4@test.se" },
+                    { "cca6e807-6c4e-4f65-8a9e-13424e155861", 0, "4ad4f621-7826-474c-bf37-98dbc3897693", "admin@admin.com", false, false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAELmYJsyogWCucbDCaK5mkGqG3KdDPmd8mKFMnlKfUxqhR5OOi35+ypBvvdUUGx7z9A==", null, false, "ad98ad3f-5cc2-4e61-8db8-e1a8219f586e", false, "admin@admin.com" },
+                    { "d414e212-1f35-40af-bbb5-24760bd4b2f9", 0, "4db78e7c-463c-45e0-a983-ca2ed0c2bd7b", "test1@test.se", false, false, null, "TEST1@TEST.SE", "TEST1@TEST.SE", "AQAAAAEAACcQAAAAEINihRVmqF+u/3nl3669IVY/WZvJ7OZSzhnMZgFYfs8UgJMevrLdOUdGEs0euSoo+w==", null, false, "31739fa9-3205-40da-b3fc-471773b4be18", false, "test1@test.se" }
                 });
 
             migrationBuilder.InsertData(
@@ -369,10 +392,10 @@ namespace LexiconMVCEndProject.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "335757f1-802a-495b-b2e9-4f490f9935f5" },
-                    { "86d6488e-f207-4dee-925a-d8ac23361c10", "b0b2de94-efed-405f-8998-136ea5aa8093" },
-                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "bf02c0be-58d3-4b94-88be-565976b11f9f" },
-                    { "4375342d-0159-4c05-9b2a-64a1768f8579", "e1291f95-6c8d-4e7e-b683-2090733f0dd1" }
+                    { "49799b2d-4b7b-4faf-a7b2-83a00fe65175", "14a0746b-3157-40a1-be08-e8e1a347ce44" },
+                    { "49799b2d-4b7b-4faf-a7b2-83a00fe65175", "9eb04a61-29af-4c92-a2ea-5875520ab0a6" },
+                    { "41d17cc2-b849-448f-8cff-0008e10ea4c3", "cca6e807-6c4e-4f65-8a9e-13424e155861" },
+                    { "49799b2d-4b7b-4faf-a7b2-83a00fe65175", "d414e212-1f35-40af-bbb5-24760bd4b2f9" }
                 });
 
             migrationBuilder.InsertData(
@@ -380,9 +403,9 @@ namespace LexiconMVCEndProject.Migrations
                 columns: new[] { "CustomerId", "Address", "ApplicationUserId", "City", "Country", "Email", "FirstName", "LastName", "PhoneNumber", "ZipCode" },
                 values: new object[,]
                 {
-                    { 1, "Björnidet 13", "335757f1-802a-495b-b2e9-4f490f9935f5", "Björneborg", "Sweden", "test1@test.se", "Anders", "Karlsson", "073 888 54 12", "123 90" },
-                    { 2, "Medborgargatan 39", "bf02c0be-58d3-4b94-88be-565976b11f9f", "Malmö", "Sweden", "test2@test.se", "Karin", "Svensson", "074 123 97 41", "782 21" },
-                    { 3, "Björkvägen 89", "e1291f95-6c8d-4e7e-b683-2090733f0dd1", "Karlstad", "Sweden", "test4@test.se", "Sune", "Stig", "077 564 28 31", "329 85" }
+                    { 1, "Björnidet 13", "d414e212-1f35-40af-bbb5-24760bd4b2f9", "Björneborg", "Sweden", "test1@test.se", "Anders", "Karlsson", "073 888 54 12", "123 90" },
+                    { 2, "Medborgargatan 39", "14a0746b-3157-40a1-be08-e8e1a347ce44", "Malmö", "Sweden", "test2@test.se", "Karin", "Svensson", "074 123 97 41", "782 21" },
+                    { 3, "Björkvägen 89", "9eb04a61-29af-4c92-a2ea-5875520ab0a6", "Karlstad", "Sweden", "test4@test.se", "Sune", "Stig", "077 564 28 31", "329 85" }
                 });
 
             migrationBuilder.InsertData(
@@ -492,6 +515,11 @@ namespace LexiconMVCEndProject.Migrations
                 column: "CategoryID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ReceiptItem_ReceiptId",
+                table: "ReceiptItem",
+                column: "ReceiptId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Receipts_CustomerId",
                 table: "Receipts",
                 column: "CustomerId",
@@ -528,7 +556,7 @@ namespace LexiconMVCEndProject.Migrations
                 name: "CreditCards");
 
             migrationBuilder.DropTable(
-                name: "Receipts");
+                name: "ReceiptItem");
 
             migrationBuilder.DropTable(
                 name: "SalesOrders");
@@ -538,6 +566,9 @@ namespace LexiconMVCEndProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Receipts");
 
             migrationBuilder.DropTable(
                 name: "Carts");

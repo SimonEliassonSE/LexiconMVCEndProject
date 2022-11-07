@@ -8,43 +8,43 @@ namespace LexiconMVCEndProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerAPIController : ControllerBase
+    public class CreditcardAPIController : ControllerBase
     {
         readonly ApplicationDbContext _context;
 
-        public CustomerAPIController(ApplicationDbContext context)
+        public CreditcardAPIController(ApplicationDbContext context)
         {
 
             _context = context;
 
         }
-        // GET: api/<CustomerAPIController>
+        // GET: api/<CreditcardAPIController>
         [HttpGet]
-        public IEnumerable<Customer> Get()
+        public IEnumerable<CreditCard> Get()
         {
-            return _context.Customers;
+            return _context.CreditCards;
         }
 
-        // GET api/<CustomerAPIController>/5
+        // GET api/<CreditcardAPIController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<CustomerAPIController>
+        // POST api/<CreditcardAPIController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<CustomerAPIController>/5
+        // PUT api/<CreditcardAPIController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<CustomerAPIController>/5
+        // DELETE api/<CreditcardAPIController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
