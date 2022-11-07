@@ -89,65 +89,65 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "617729b1-ff17-4e5b-9191-68e9697587a9",
+                            Id = "cca6e807-6c4e-4f65-8a9e-13424e155861",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a2d00d83-6a1a-4d7a-ba6e-59df1a833d5e",
+                            ConcurrencyStamp = "4ad4f621-7826-474c-bf37-98dbc3897693",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBs7m/2076kPG6IJhrevK2SgG7ckeO/B3fHA0dRlYawKuufVKYyKmmAztOVzLeq0aQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELmYJsyogWCucbDCaK5mkGqG3KdDPmd8mKFMnlKfUxqhR5OOi35+ypBvvdUUGx7z9A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "33d2eb3d-535f-4dd9-ba4d-200bae737280",
+                            SecurityStamp = "ad98ad3f-5cc2-4e61-8db8-e1a8219f586e",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
                         new
                         {
-                            Id = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
+                            Id = "d414e212-1f35-40af-bbb5-24760bd4b2f9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8e51209d-5bdd-4716-8968-eee0bc959995",
+                            ConcurrencyStamp = "4db78e7c-463c-45e0-a983-ca2ed0c2bd7b",
                             Email = "test1@test.se",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST1@TEST.SE",
                             NormalizedUserName = "TEST1@TEST.SE",
-                            PasswordHash = "AQAAAAEAACcQAAAAECW836VNNak7A0IK3Czq2WstAqPTFeJFI+8UBGeNSap0HuAvGh1jAKReQ/y0z6BvKw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEINihRVmqF+u/3nl3669IVY/WZvJ7OZSzhnMZgFYfs8UgJMevrLdOUdGEs0euSoo+w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0c9b7d39-60f7-4b3a-9ee9-3ba4b2fe7893",
+                            SecurityStamp = "31739fa9-3205-40da-b3fc-471773b4be18",
                             TwoFactorEnabled = false,
                             UserName = "test1@test.se"
                         },
                         new
                         {
-                            Id = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
+                            Id = "14a0746b-3157-40a1-be08-e8e1a347ce44",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d8ff142-64e6-4230-96a3-e092cb1a502d",
+                            ConcurrencyStamp = "488b739a-e5d2-48ac-a08a-e97320600a4a",
                             Email = "test2@test.se",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST2@TEST.SE",
                             NormalizedUserName = "TEST2@TEST.SE",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFexe//KSEupvlrxmefl5PIb/SuxJRnvYWxZG1UXG0yluMdPZDcgjASS9klVHKl1yw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKSS0PibJe+qxjEHhSzn77MqXJr1qEFGeBnL8osOeqN6ylzBitXkpxT/vBz/eRXVsA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d5738b6-17cf-411f-a671-ae1f6544b2fb",
+                            SecurityStamp = "76132c67-a518-4255-be9a-e979826c946e",
                             TwoFactorEnabled = false,
                             UserName = "test2@test.se"
                         },
                         new
                         {
-                            Id = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
+                            Id = "9eb04a61-29af-4c92-a2ea-5875520ab0a6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bac2ae10-79fa-4cd0-9ecd-1f9b65a516ba",
+                            ConcurrencyStamp = "6ab3e59a-a2e4-4088-8322-0c9906ca29d1",
                             Email = "test4@test.se",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST4@TEST.SE",
                             NormalizedUserName = "TEST4@TEST.SE",
-                            PasswordHash = "AQAAAAEAACcQAAAAENxjV49NB/OQ/pJgvoYmt9BzEaaIEcz+7Xu6aEZIZg+d+NBcizJhX/6ru4tcHzrG0A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHJjjBXOL46VezgVwA8SVpvIb1fdyYSRke2XNbnnSRVCDPbhsVx/yGJUYMr0HPjAFA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b6608c3e-b910-4f68-9357-698eb063d842",
+                            SecurityStamp = "834d1726-ec36-4c5f-9d0c-441cdcd7aee0",
                             TwoFactorEnabled = false,
                             UserName = "test4@test.se"
                         });
@@ -173,14 +173,6 @@ namespace LexiconMVCEndProject.Migrations
                         .IsUnique();
 
                     b.ToTable("Carts");
-
-                    b.HasData(
-                        new
-                        {
-                            CartId = 1,
-                            CustomerId = 1,
-                            TotalPrice = 0.0
-                        });
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.CartItem", b =>
@@ -377,7 +369,7 @@ namespace LexiconMVCEndProject.Migrations
                         {
                             CustomerId = 1,
                             Address = "Björnidet 13",
-                            ApplicationUserId = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
+                            ApplicationUserId = "d414e212-1f35-40af-bbb5-24760bd4b2f9",
                             City = "Björneborg",
                             Country = "Sweden",
                             Email = "test1@test.se",
@@ -390,7 +382,7 @@ namespace LexiconMVCEndProject.Migrations
                         {
                             CustomerId = 2,
                             Address = "Medborgargatan 39",
-                            ApplicationUserId = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
+                            ApplicationUserId = "14a0746b-3157-40a1-be08-e8e1a347ce44",
                             City = "Malmö",
                             Country = "Sweden",
                             Email = "test2@test.se",
@@ -403,7 +395,7 @@ namespace LexiconMVCEndProject.Migrations
                         {
                             CustomerId = 3,
                             Address = "Björkvägen 89",
-                            ApplicationUserId = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
+                            ApplicationUserId = "9eb04a61-29af-4c92-a2ea-5875520ab0a6",
                             City = "Karlstad",
                             Country = "Sweden",
                             Email = "test4@test.se",
@@ -601,11 +593,8 @@ namespace LexiconMVCEndProject.Migrations
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.Receipt", b =>
                 {
-                    b.Property<int>("ReceiptId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReceiptId"), 1L, 1);
+                    b.Property<string>("ReceiptId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -626,6 +615,45 @@ namespace LexiconMVCEndProject.Migrations
                         .IsUnique();
 
                     b.ToTable("Receipts");
+                });
+
+            modelBuilder.Entity("LexiconMVCEndProject.Models.ReceiptItem", b =>
+                {
+                    b.Property<int>("ReceiptItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReceiptItemId"), 1L, 1);
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IMG")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReceiptId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ReceiptItemId");
+
+                    b.HasIndex("ReceiptId");
+
+                    b.ToTable("ReceiptItem");
                 });
 
             modelBuilder.Entity("LexiconMVCEndProject.Models.SalesOrder", b =>
@@ -679,15 +707,15 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6637157a-cdb8-4279-a105-418dd604282a",
-                            ConcurrencyStamp = "649ba3aa-1ad6-4096-aa95-db553e7a730b",
+                            Id = "41d17cc2-b849-448f-8cff-0008e10ea4c3",
+                            ConcurrencyStamp = "7bc98e8e-7f6e-44aa-9e08-0a1fe26bdfab",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "1e8e3c04-1269-4b4d-8204-c1a737403703",
-                            ConcurrencyStamp = "2dbe8457-0392-46d9-98bf-5825bcf5d7fa",
+                            Id = "49799b2d-4b7b-4faf-a7b2-83a00fe65175",
+                            ConcurrencyStamp = "a5e74cd7-5400-4f21-b0a1-ee62440f5862",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -784,23 +812,23 @@ namespace LexiconMVCEndProject.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "617729b1-ff17-4e5b-9191-68e9697587a9",
-                            RoleId = "6637157a-cdb8-4279-a105-418dd604282a"
+                            UserId = "cca6e807-6c4e-4f65-8a9e-13424e155861",
+                            RoleId = "41d17cc2-b849-448f-8cff-0008e10ea4c3"
                         },
                         new
                         {
-                            UserId = "bb8b013c-c9a0-44a8-a067-0f6fdd9e7045",
-                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                            UserId = "d414e212-1f35-40af-bbb5-24760bd4b2f9",
+                            RoleId = "49799b2d-4b7b-4faf-a7b2-83a00fe65175"
                         },
                         new
                         {
-                            UserId = "ebc0d83b-10bb-49a1-9d81-8fa69df1300c",
-                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                            UserId = "14a0746b-3157-40a1-be08-e8e1a347ce44",
+                            RoleId = "49799b2d-4b7b-4faf-a7b2-83a00fe65175"
                         },
                         new
                         {
-                            UserId = "34df0f82-895f-4bb6-a64c-d5b5db9c64d4",
-                            RoleId = "1e8e3c04-1269-4b4d-8204-c1a737403703"
+                            UserId = "9eb04a61-29af-4c92-a2ea-5875520ab0a6",
+                            RoleId = "49799b2d-4b7b-4faf-a7b2-83a00fe65175"
                         });
                 });
 
@@ -899,6 +927,17 @@ namespace LexiconMVCEndProject.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("LexiconMVCEndProject.Models.ReceiptItem", b =>
+                {
+                    b.HasOne("LexiconMVCEndProject.Models.Receipt", "Receipt")
+                        .WithMany("ReceiptItems")
+                        .HasForeignKey("ReceiptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receipt");
+                });
+
             modelBuilder.Entity("LexiconMVCEndProject.Models.SalesOrder", b =>
                 {
                     b.HasOne("LexiconMVCEndProject.Models.Cart", "Cart")
@@ -989,6 +1028,11 @@ namespace LexiconMVCEndProject.Migrations
 
                     b.Navigation("Receipt")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LexiconMVCEndProject.Models.Receipt", b =>
+                {
+                    b.Navigation("ReceiptItems");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using LexiconMVCEndProject.Data;
 using LexiconMVCEndProject.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -8,43 +9,43 @@ namespace LexiconMVCEndProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerAPIController : ControllerBase
+    public class IdentityAPIController : ControllerBase
     {
-        readonly ApplicationDbContext _context;
+        readonly RoleManager<IdentityRole> _roleManager;
+        readonly UserManager<ApplicationUser> _userManager;
 
-        public CustomerAPIController(ApplicationDbContext context)
+        public IdentityAPIController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
-
-            _context = context;
-
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
-        // GET: api/<CustomerAPIController>
+        // GET: api/<IdentityAPIController>
         [HttpGet]
-        public IEnumerable<Customer> Get()
+        public IEnumerable<ApplicationUser> Get()
         {
-            return _context.Customers;
+            return _userManager.Users;
         }
 
-        // GET api/<CustomerAPIController>/5
+        // GET api/<IdentityAPIController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<CustomerAPIController>
+        // POST api/<IdentityAPIController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<CustomerAPIController>/5
+        // PUT api/<IdentityAPIController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<CustomerAPIController>/5
+        // DELETE api/<IdentityAPIController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
