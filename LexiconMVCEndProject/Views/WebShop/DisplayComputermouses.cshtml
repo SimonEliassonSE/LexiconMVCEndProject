@@ -58,7 +58,7 @@
                             <a class="col-sm-1">
                                 <h4>@item.Name</h4>
                                 <p>
-                                    <span>@item.Brand || @item.Description || @item.Price Kr || <a class="btn btn-primary">Add 2 cart</a></span>
+                                    <span>@item.Brand || @item.Description || @item.Price Kr || <a class="btn btn-primary" asp-controller="WebShop" asp-action="AddProductMouseView" asp-route-id="@item.ProductId">Add 2 cart</a></span>
                                 </p>
                             </a>
                         </div>

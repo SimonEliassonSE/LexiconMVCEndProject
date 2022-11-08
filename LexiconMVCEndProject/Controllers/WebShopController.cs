@@ -49,7 +49,7 @@ namespace LexiconMVCEndProject.Controllers
         {
             HomeShopViewModel hsVM = new HomeShopViewModel();
 
-            var products = _context.Products.Where(x => x.CategoryID == 5).ToList();
+            var products = _context.Products.Where(x => x.CategoryID == 4).ToList();
 
             hsVM.Products = products;
 
@@ -95,6 +95,78 @@ namespace LexiconMVCEndProject.Controllers
             tempCart.TotalPrice = tempCart.TotalPrice + p.Price;
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult AddProductKeyboardView(int id)
+        {
+            var product = _context.Products.Where(x => x.ProductId == id).ToList();
+
+            tempCart.productTempList.AddRange(product);
+
+            Product p = new Product();
+            foreach (var item in product)
+            {
+                p.Price = item.Price;
+
+            }
+
+            tempCart.TotalPrice = tempCart.TotalPrice + p.Price;
+
+            return RedirectToAction("DisplayKeyboards");
+        }
+
+        public IActionResult AddProductHeadphoneView(int id)
+        {
+            var product = _context.Products.Where(x => x.ProductId == id).ToList();
+
+            tempCart.productTempList.AddRange(product);
+
+            Product p = new Product();
+            foreach (var item in product)
+            {
+                p.Price = item.Price;
+
+            }
+
+            tempCart.TotalPrice = tempCart.TotalPrice + p.Price;
+
+            return RedirectToAction("DisplayHeadphones");
+        }
+
+        public IActionResult AddProductHeadphonestandView(int id)
+        {
+            var product = _context.Products.Where(x => x.ProductId == id).ToList();
+
+            tempCart.productTempList.AddRange(product);
+
+            Product p = new Product();
+            foreach (var item in product)
+            {
+                p.Price = item.Price;
+
+            }
+
+            tempCart.TotalPrice = tempCart.TotalPrice + p.Price;
+
+            return RedirectToAction("DisplayHeadphoneStands");
+        }
+
+        public IActionResult AddProductMouseView(int id)
+        {
+            var product = _context.Products.Where(x => x.ProductId == id).ToList();
+
+            tempCart.productTempList.AddRange(product);
+
+            Product p = new Product();
+            foreach (var item in product)
+            {
+                p.Price = item.Price;
+
+            }
+
+            tempCart.TotalPrice = tempCart.TotalPrice + p.Price;
+
+            return RedirectToAction("DisplayComputermouses");
         }
 
         // If user 
@@ -287,7 +359,7 @@ namespace LexiconMVCEndProject.Controllers
                 }
 
             if(cc.Value >= tempCart.TotalPrice)
-            {
+            {           
                 var customerCart = _context.Carts.Where(x => x.CustomerId == c.CustomerId).ToList();
                 //var productToAdd = _context.Products.Where(x => x.ProductId == id).ToList();
             
@@ -431,6 +503,100 @@ namespace LexiconMVCEndProject.Controllers
 
 
             return View(maVM);
+        }
+        [HttpGet]
+        public IActionResult AddCustomerdataFromMyaccount()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddCustomerdataFromMyaccount(Customer model)
+        {
+
+            var currentUserId = _userManager.GetUserId(User);
+
+            Customer c = new Customer();
+            {
+                c.FirstName = model.FirstName;
+                c.LastName = model.LastName;
+                c.PhoneNumber = model.PhoneNumber;
+                c.Address = model.Address;
+                c.ZipCode = model.ZipCode;
+                c.City = model.City;
+                c.Country = model.Country;
+                c.ApplicationUserId = currentUserId;
+            }
+
+            // added this to get the correct Email for the customer
+            var userEmail = from user in _context.Users
+                            where user.Id == currentUserId
+                            select new
+                            {
+                                userEmail = user.UserName
+                            };
+
+            //adds the correct Email to the Customer.
+            foreach (var item in userEmail)
+            {
+                c.Email = item.userEmail;
+            }
+
+            _context.Customers.Add(c);
+            _context.SaveChanges();
+
+
+            return RedirectToAction("MyAccount");
+            //Tested and approved, adds a customer with user ID and gets the correct E-mail.
+
+        }
+        [HttpGet]
+        public IActionResult AddCCdataFromMyaccount()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddCCdataFromMyaccount(CreditCard model)
+        {
+            var currentUserId = _userManager.GetUserId(User);
+            var customerData = _context.Customers.Where(x => x.ApplicationUserId == currentUserId).ToList();
+
+            Customer c = new Customer();
+
+            // we want to see if current customerId has a creditcard added...
+            foreach (var item in customerData)
+            {
+                c.CustomerId = item.CustomerId;
+                c.FirstName = item.FirstName;
+                c.LastName = item.LastName;
+                c.PhoneNumber = item.PhoneNumber;
+                c.Address = item.Address;
+                c.ZipCode = item.ZipCode;
+                c.City = item.City;
+                c.Country = item.Country;
+                c.Email = item.Email;
+                c.ApplicationUserId = item.ApplicationUserId;
+            };
+
+            // Get customerId here...
+            Random rand = new Random();
+            double randomValue = rand.Next(1, 100000);
+
+            CreditCard creditCard = new CreditCard();
+            {
+                // We will "take" CreditNumber, CCV and Bank from user, the rest will be Auto Generated.
+                creditCard.CreditNumber = model.CreditNumber;
+                creditCard.CCV = model.CCV;
+                creditCard.Bank = model.Bank;
+                // We will be using a randomiser to get a random value on the amount of moneye the card contains.
+                creditCard.Value = randomValue;
+                creditCard.CustomerId = c.CustomerId;
+            }
+
+            _context.CreditCards.Add(creditCard);
+            _context.SaveChanges();
+
+            return RedirectToAction("MyAccount");
         }
 
         public IActionResult CreateRecipte()
