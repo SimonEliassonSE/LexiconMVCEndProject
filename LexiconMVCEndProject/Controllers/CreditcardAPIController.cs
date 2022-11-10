@@ -1,5 +1,6 @@
 ﻿using LexiconMVCEndProject.Data;
 using LexiconMVCEndProject.Models;
+using LexiconMVCEndProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -34,8 +35,31 @@ namespace LexiconMVCEndProject.Controllers
 
         // POST api/<CreditcardAPIController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CreateCreditcardPostViewModel model)
         {
+            
+            if(model != null)
+            { 
+            CreditCard cc = new CreditCard();
+
+            Random rand = new Random();
+            int rand_value = rand.Next(0, 100000);
+
+            cc.CreditNumber = model.CreditNumber;
+            cc.CCV = model.CCV;
+            cc.Bank = model.Bank;
+            cc.CustomerId = model.CustomerId;
+            cc.Value = rand_value;
+
+                _context.Add(cc);
+                _context.SaveChanges();
+
+                Response.StatusCode = 200;
+            }
+            else
+            {
+                Response.StatusCode = 400;
+            }
         }
 
         // PUT api/<CreditcardAPIController>/5

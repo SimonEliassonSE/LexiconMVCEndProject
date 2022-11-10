@@ -1,5 +1,6 @@
 ﻿using LexiconMVCEndProject.Data;
 using LexiconMVCEndProject.Models;
+using LexiconMVCEndProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -34,8 +35,39 @@ namespace LexiconMVCEndProject.Controllers
 
         // POST api/<CustomerAPIController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] AddCustomerPostViewModel model)
         {
+            var userId = _context.Users.Where(x => x.UserName == model.UserId).ToList();
+            ApplicationUser apl = new ApplicationUser();
+            foreach(var item in userId)
+            {
+                apl.Id = item.Id;
+                apl.Email = item.Email;
+            }
+
+            if(model != null && userId.Count != 0)
+            {
+                Customer c = new Customer();
+                c.FirstName = model.FirstName;
+                c.LastName = model.LastName;
+                c.PhoneNumber = model.Phonenumber;
+                c.Address = model.Address;
+                c.ZipCode = model.Zipcode;
+                c.City = model.City;
+                c.Country = model.Country;
+                c.Email = apl.Email;
+                c.ApplicationUserId = apl.Id;
+
+                _context.Customers.Add(c);
+                _context.SaveChanges();
+
+                Response.StatusCode = 200;
+            }
+            else if (model == null || userId.Count == 0)
+            {
+                Response.StatusCode = 400;
+            }
+
         }
 
         // PUT api/<CustomerAPIController>/5
