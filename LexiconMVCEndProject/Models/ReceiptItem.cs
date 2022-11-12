@@ -17,9 +17,7 @@ namespace LexiconMVCEndProject.Models
 
         public string Brand { get; set; }
 
-        // Change Recipt ID to string (Guid)
-        //public int ReceiptId { get; set; }
-        public string ReceiptId { get; set; }
+        public int ReceiptId { get; set; }
 
         public Receipt Receipt { get; set; }
     }

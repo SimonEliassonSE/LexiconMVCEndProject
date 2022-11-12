@@ -6,7 +6,7 @@ namespace LexiconMVCEndProject.Models
     {
 
         [Key]
-        public string ReceiptId { get; set; }
+        public int ReceiptId { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
         public DateTime ReceiptDate { get; set; }

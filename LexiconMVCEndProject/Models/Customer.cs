@@ -32,7 +32,9 @@ namespace LexiconMVCEndProject.Models
         public List<CreditCard> CreditCardList { get; set; }
         public Cart Cart { get; set; }
 
-        public Receipt Receipt { get; set; }
+        //public Receipt Receipt { get; set; }
+
+        public List<Receipt> ReceiptList { get; set; } 
 
         //public int OrderHistoryId { get; set; }
 

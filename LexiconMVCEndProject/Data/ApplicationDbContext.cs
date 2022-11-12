@@ -28,6 +28,7 @@ namespace LexiconMVCEndProject.Data
         public DbSet<CreditCard> CreditCards { get; set; }
         public DbSet<SalesOrder> SalesOrders { get; set; }
         public DbSet<Receipt> Receipts { get; set; }
+        public DbSet<ReceiptItem> ReceiptItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
